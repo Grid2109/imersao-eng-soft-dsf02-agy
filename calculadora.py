@@ -1,6 +1,6 @@
 # ============================================================
 # CALCULADORA BÁSICA EM PYTHON
-# As quatro operações: Soma (+), Subtração (-), Multiplicação (*) e Divisão (/)
+# Operações: Soma (+), Subtração (-), Multiplicação (*), Divisão (/) e Porcentagem (%)
 # ============================================================
 
 print("=" * 40)
@@ -16,8 +16,9 @@ print("  +  -> Soma")
 print("  -  -> Subtração")
 print("  *  -> Multiplicação")
 print("  /  -> Divisão")
+print("  %  -> Porcentagem")
 
-operacao = input("Escolha a operação (+, -, *, /): ").strip()
+operacao = input("Escolha a operação (+, -, *, /, %): ").strip()
 num2 = float(input("Digite o segundo número: "))
 
 # 2. Estrutura condicional para calcular o resultado
@@ -41,8 +42,13 @@ elif operacao == "/":
         resultado = num1 / num2
         print(f"\nResultado: {num1} / {num2} = {resultado}")
 
+elif operacao == "%":
+    # Cálculo de porcentagem: num2% de num1 (ex: 15% de 200 = 30)
+    resultado = (num1 * num2) / 100
+    print(f"\nResultado: {num2}% de {num1} = {resultado}")
+
 else:
-    print(f"\nOperação inválida '{operacao}'! Escolha +, -, * ou /.")
+    print(f"\nOperação inválida '{operacao}'! Escolha +, -, *, / ou %.")
 
 print("=" * 40)
 print("Fim do cálculo. Obrigado por usar a calculadora!")

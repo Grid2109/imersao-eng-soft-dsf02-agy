@@ -21,6 +21,10 @@ def dividir(a, b):
         return "Erro: Divisão por zero não é permitida!"
     return a / b
 
+def calcular_porcentagem(valor, taxa):
+    """Calcula a taxa percentual de um valor (ex: taxa% de valor)."""
+    return (valor * taxa) / 100
+
 def exibir_menu():
     print("\n" + "=" * 35)
     print("      MENU DA CALCULADORA")
@@ -29,20 +33,21 @@ def exibir_menu():
     print("2. Subtrair (-)")
     print("3. Multiplicar (*)")
     print("4. Dividir (/)")
-    print("5. Sair do programa")
+    print("5. Porcentagem (%)")
+    print("6. Sair do programa")
     print("=" * 35)
 
 # Loop principal: mantém a calculadora aberta até o usuário escolher sair
 while True:
     exibir_menu()
-    opcao = input("Escolha uma opção (1 a 5): ").strip()
+    opcao = input("Escolha uma opção (1 a 6): ").strip()
 
-    if opcao == "5":
+    if opcao == "6":
         print("Encerrando a calculadora... Até logo!")
         break
 
-    if opcao not in ("1", "2", "3", "4"):
-        print("Opção inválida! Digite um número de 1 a 5.")
+    if opcao not in ("1", "2", "3", "4", "5"):
+        print("Opção inválida! Digite um número de 1 a 6.")
         continue
 
     try:
@@ -64,3 +69,6 @@ while True:
             print(resp)
         else:
             print(f"Resultado: {n1} / {n2} = {resp}")
+    elif opcao == "5":
+        resultado = calcular_porcentagem(n1, n2)
+        print(f"Resultado: {n2}% de {n1} = {resultado}")

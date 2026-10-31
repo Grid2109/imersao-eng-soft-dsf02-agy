@@ -87,9 +87,10 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
         { id: "m5", type: "stdout", text: "2. Subtrair (-)" },
         { id: "m6", type: "stdout", text: "3. Multiplicar (*)" },
         { id: "m7", type: "stdout", text: "4. Dividir (/)" },
-        { id: "m8", type: "stdout", text: "5. Sair do programa" },
-        { id: "m9", type: "banner", text: "===================================" },
-        { id: "mp1", type: "stdout", text: "Escolha uma opção (1 a 5): " },
+        { id: "m8", type: "stdout", text: "5. Porcentagem (%)" },
+        { id: "m9", type: "stdout", text: "6. Sair do programa" },
+        { id: "m10", type: "banner", text: "===================================" },
+        { id: "mp1", type: "stdout", text: "Escolha uma opção (1 a 6): " },
       ]);
     }
   }, [mode]);
@@ -264,6 +265,12 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
             ? `elif operacao == "/":\n    resultado = ${num1} / ${secondNum}\n    # resultado: ${result}`
             : `def dividir(a, b): return a / b\nresultado = dividir(${num1}, ${secondNum})\n# resultado: ${result}`;
       }
+    } else if (operation === "%") {
+      result = (num1 * secondNum) / 100;
+      pythonTrace =
+        mode === "basic"
+          ? `elif operacao == "%":\n    resultado = (${num1} * ${secondNum}) / 100\n    # resultado: ${secondNum}% de ${num1} = ${result}`
+          : `def calcular_porcentagem(valor, taxa):\n    return (valor * taxa) / 100\nresultado = calcular_porcentagem(${num1}, ${secondNum})\n# resultado: ${secondNum}% de ${num1} = ${result}`;
     }
 
     if (result !== null) {
@@ -276,7 +283,9 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
       setDisplayValue(formattedResult);
       setLastExecutedPython(pythonTrace);
       setActiveStepText(
-        `✅ print(f"Resultado: {num1} ${operation} {num2} = {resultado}") -> ${formattedResult}`
+        operation === "%"
+          ? `✅ print(f"Resultado: {num2}% de {num1} = {resultado}") -> ${formattedResult}`
+          : `✅ print(f"Resultado: {num1} ${operation} {num2} = {resultado}") -> ${formattedResult}`
       );
       setResultado(result);
 
@@ -306,7 +315,7 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
       } else if (e.key === "." || e.key === ",") {
         e.preventDefault();
         handleDecimal();
-      } else if (["+", "-", "*", "/"].includes(e.key)) {
+      } else if (["+", "-", "*", "/", "%"].includes(e.key)) {
         e.preventDefault();
         handleOperator(e.key);
       } else if (e.key === "Enter" || e.key === "=") {
@@ -352,13 +361,20 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
           if (op === "-") res = n1 - n2;
           if (op === "*") res = n1 * n2;
           if (op === "/") res = n1 / n2;
+          if (op === "%") res = (n1 * n2) / 100;
 
           const formatted = Number.isInteger(res) ? String(res) : parseFloat(res.toFixed(8)).toString();
           setDisplayValue(formatted);
           setLastExecutedPython(
-            `# Executou o bloco:\nif operacao == "${op}":\n    resultado = ${n1} ${op} ${n2}  # = ${formatted}\n    print(f"Resultado: {resultado}")`
+            op === "%"
+              ? `# Executou o cálculo de porcentagem:\nresultado = (${n1} * ${n2}) / 100  # = ${formatted}\nprint(f"Resultado: {num2}% de {num1} = {resultado}")`
+              : `# Executou o bloco:\nif operacao == "${op}":\n    resultado = ${n1} ${op} ${n2}  # = ${formatted}\n    print(f"Resultado: {resultado}")`
           );
-          setActiveStepText(`✅ Cálculo realizado com sucesso: ${n1} ${op} ${n2} = ${formatted}`);
+          setActiveStepText(
+            op === "%"
+              ? `✅ Cálculo de porcentagem: ${n2}% de ${n1} = ${formatted}`
+              : `✅ Cálculo realizado com sucesso: ${n1} ${op} ${n2} = ${formatted}`
+          );
           setNum1(n1);
           setNum2(n2);
           setOperation(op);
@@ -374,6 +390,7 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
     if (!op) return "";
     if (op === "*") return "×";
     if (op === "/") return "÷";
+    if (op === "%") return "%";
     return op;
   };
 
@@ -472,6 +489,12 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
           100 / 4
         </button>
         <button
+          onClick={() => runPreset(200, "%", 15)}
+          className="px-2 py-0.5 rounded-md bg-neutral-900/80 hover:bg-neutral-800 text-neutral-300 border border-white/[0.08] hover:border-cyan-500/40 font-mono text-[11px] transition cursor-pointer hover:shadow-[0_0_8px_rgba(6,182,212,0.2)]"
+        >
+          200 % 15 (15%)
+        </button>
+        <button
           onClick={() => runPreset(42, "/", 0)}
           className="px-2 py-0.5 rounded-md bg-rose-950/40 hover:bg-rose-900/50 text-rose-300 border border-rose-500/30 hover:border-rose-400 font-mono text-[11px] transition cursor-pointer shadow-[0_0_8px_rgba(244,63,94,0.15)]"
           title="Ver o tratamento de if num2 == 0 em ação"
@@ -548,7 +571,7 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
 
             {/* iPhone iOS Circular Button Grid */}
             <div className="grid grid-cols-4 gap-3 sm:gap-3.5">
-              {/* Row 1: AC, C, Backspace, Division */}
+              {/* Row 1: AC, Backspace, %, Division */}
               <button
                 onClick={resetCalculator}
                 className="w-full aspect-square rounded-full bg-[#a5a5a5] hover:bg-[#d4d4d2] active:bg-[#e5e5e5] text-black font-normal text-xl sm:text-2xl flex items-center justify-center transition-all duration-150 active:scale-95 shadow cursor-pointer select-none"
@@ -557,21 +580,22 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
                 AC
               </button>
               <button
-                onClick={() => {
-                  setDisplayValue("0");
-                  setIsNewEntry(true);
-                }}
-                className="w-full aspect-square rounded-full bg-[#a5a5a5] hover:bg-[#d4d4d2] active:bg-[#e5e5e5] text-black font-normal text-xl sm:text-2xl flex items-center justify-center transition-all duration-150 active:scale-95 shadow cursor-pointer select-none"
-                title="Limpar entrada atual"
-              >
-                C
-              </button>
-              <button
                 onClick={handleBackspace}
                 className="w-full aspect-square rounded-full bg-[#a5a5a5] hover:bg-[#d4d4d2] active:bg-[#e5e5e5] text-black flex items-center justify-center transition-all duration-150 active:scale-95 shadow cursor-pointer select-none"
                 title="Apagar dígito"
               >
                 <Delete className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
+              <button
+                onClick={() => handleOperator("%")}
+                className={`w-full aspect-square rounded-full text-2xl sm:text-3xl flex items-center justify-center transition-all duration-150 active:scale-95 shadow cursor-pointer select-none ${
+                  operation === "%"
+                    ? "bg-white text-[#ff9f0a] font-bold"
+                    : "bg-[#a5a5a5] hover:bg-[#d4d4d2] active:bg-[#e5e5e5] text-black font-normal"
+                }`}
+                title="Porcentagem (%)"
+              >
+                %
               </button>
               <button
                 onClick={() => handleOperator("/")}
@@ -805,77 +829,167 @@ export const InteractiveTerminal: React.FC<TerminalProps> = ({ mode }) => {
               const val = cliInputVal.trim();
               setCliInputVal("");
 
-              if (cliStep === 1) {
-                const parsed = parseFloat(val.replace(",", "."));
-                if (isNaN(parsed)) {
+              if (mode === "basic") {
+                if (cliStep === 1) {
+                  const parsed = parseFloat(val.replace(",", "."));
+                  if (isNaN(parsed)) {
+                    setHistory((prev) => [
+                      ...prev,
+                      { id: Math.random().toString(), type: "stdin", text: val },
+                      { id: Math.random().toString(), type: "error", text: "ValueError: digite um número válido." },
+                      { id: Math.random().toString(), type: "stdout", text: "Digite o primeiro número: " },
+                    ]);
+                    return;
+                  }
+                  setCliVariables({ num1: parsed });
+                  setCliStep(2);
                   setHistory((prev) => [
                     ...prev,
                     { id: Math.random().toString(), type: "stdin", text: val },
-                    { id: Math.random().toString(), type: "error", text: "ValueError: digite um número válido." },
-                    { id: Math.random().toString(), type: "stdout", text: "Digite o primeiro número: " },
+                    { id: Math.random().toString(), type: "stdout", text: "Operações disponíveis:\n  +  -> Soma\n  -  -> Subtração\n  *  -> Multiplicação\n  /  -> Divisão\n  %  -> Porcentagem\n\nEscolha a operação (+, -, *, /, %): " },
                   ]);
-                  return;
-                }
-                setCliVariables({ num1: parsed });
-                setCliStep(2);
-                setHistory((prev) => [
-                  ...prev,
-                  { id: Math.random().toString(), type: "stdin", text: val },
-                  { id: Math.random().toString(), type: "stdout", text: "Escolha a operação (+, -, *, /): " },
-                ]);
-              } else if (cliStep === 2) {
-                if (!["+", "-", "*", "/"].includes(val)) {
+                } else if (cliStep === 2) {
+                  if (!["+", "-", "*", "/", "%"].includes(val)) {
+                    setHistory((prev) => [
+                      ...prev,
+                      { id: Math.random().toString(), type: "stdin", text: val },
+                      { id: Math.random().toString(), type: "error", text: "Operação inválida! Escolha +, -, *, / ou %." },
+                      { id: Math.random().toString(), type: "stdout", text: "Escolha a operação (+, -, *, /, %): " },
+                    ]);
+                    return;
+                  }
+                  setCliVariables((prev) => ({ ...prev, operacao: val }));
+                  setCliStep(3);
                   setHistory((prev) => [
                     ...prev,
                     { id: Math.random().toString(), type: "stdin", text: val },
-                    { id: Math.random().toString(), type: "error", text: "Operação inválida! Escolha +, -, * ou /." },
-                    { id: Math.random().toString(), type: "stdout", text: "Escolha a operação (+, -, *, /): " },
-                  ]);
-                  return;
-                }
-                setCliVariables((prev) => ({ ...prev, operacao: val }));
-                setCliStep(3);
-                setHistory((prev) => [
-                  ...prev,
-                  { id: Math.random().toString(), type: "stdin", text: val },
-                  { id: Math.random().toString(), type: "stdout", text: "Digite o segundo número: " },
-                ]);
-              } else if (cliStep === 3) {
-                const parsed2 = parseFloat(val.replace(",", "."));
-                if (isNaN(parsed2)) {
-                  setHistory((prev) => [
-                    ...prev,
-                    { id: Math.random().toString(), type: "stdin", text: val },
-                    { id: Math.random().toString(), type: "error", text: "ValueError: digite um número válido." },
                     { id: Math.random().toString(), type: "stdout", text: "Digite o segundo número: " },
                   ]);
-                  return;
-                }
-                const n1 = cliVariables.num1!;
-                const op = cliVariables.operacao!;
-                let out = "";
-                let isErr = false;
-                if (op === "+") out = `Resultado: ${n1} + ${parsed2} = ${n1 + parsed2}`;
-                if (op === "-") out = `Resultado: ${n1} - ${parsed2} = ${n1 - parsed2}`;
-                if (op === "*") out = `Resultado: ${n1} * ${parsed2} = ${n1 * parsed2}`;
-                if (op === "/") {
-                  if (parsed2 === 0) {
-                    out = "Erro: Não é possível dividir um número por zero!";
-                    isErr = true;
-                  } else {
-                    out = `Resultado: ${n1} / ${parsed2} = ${n1 / parsed2}`;
+                } else if (cliStep === 3) {
+                  const parsed2 = parseFloat(val.replace(",", "."));
+                  if (isNaN(parsed2)) {
+                    setHistory((prev) => [
+                      ...prev,
+                      { id: Math.random().toString(), type: "stdin", text: val },
+                      { id: Math.random().toString(), type: "error", text: "ValueError: digite um número válido." },
+                      { id: Math.random().toString(), type: "stdout", text: "Digite o segundo número: " },
+                    ]);
+                    return;
                   }
+                  const n1 = cliVariables.num1!;
+                  const op = cliVariables.operacao!;
+                  let out = "";
+                  let isErr = false;
+                  if (op === "+") out = `Resultado: ${n1} + ${parsed2} = ${n1 + parsed2}`;
+                  if (op === "-") out = `Resultado: ${n1} - ${parsed2} = ${n1 - parsed2}`;
+                  if (op === "*") out = `Resultado: ${n1} * ${parsed2} = ${n1 * parsed2}`;
+                  if (op === "/") {
+                    if (parsed2 === 0) {
+                      out = "Erro: Não é possível dividir um número por zero!";
+                      isErr = true;
+                    } else {
+                      out = `Resultado: ${n1} / ${parsed2} = ${n1 / parsed2}`;
+                    }
+                  }
+                  if (op === "%") out = `Resultado: ${parsed2}% de ${n1} = ${(n1 * parsed2) / 100}`;
+
+                  setCliStep(4);
+                  setHistory((prev) => [
+                    ...prev,
+                    { id: Math.random().toString(), type: "stdin", text: val },
+                    { id: Math.random().toString(), type: isErr ? "error" : "success", text: out },
+                    { id: Math.random().toString(), type: "banner", text: "========================================" },
+                    { id: Math.random().toString(), type: "stdout", text: "Fim do cálculo. Pressione Enter para recomeçar." },
+                  ]);
+                } else {
+                  resetCli();
                 }
-                setCliStep(4);
-                setHistory((prev) => [
-                  ...prev,
-                  { id: Math.random().toString(), type: "stdin", text: val },
-                  { id: Math.random().toString(), type: isErr ? "error" : "success", text: out },
-                  { id: Math.random().toString(), type: "banner", text: "========================================" },
-                  { id: Math.random().toString(), type: "stdout", text: "Fim do cálculo. Digite para recomeçar." },
-                ]);
               } else {
-                resetCli();
+                // Modo modular
+                if (cliStep === 1) {
+                  if (val === "6") {
+                    setHistory((prev) => [
+                      ...prev,
+                      { id: Math.random().toString(), type: "stdin", text: val },
+                      { id: Math.random().toString(), type: "stdout", text: "Encerrando a calculadora... Até logo!" },
+                    ]);
+                    setCliStep(99);
+                    return;
+                  }
+                  if (!["1", "2", "3", "4", "5"].includes(val)) {
+                    setHistory((prev) => [
+                      ...prev,
+                      { id: Math.random().toString(), type: "stdin", text: val },
+                      { id: Math.random().toString(), type: "error", text: "Opção inválida! Digite um número de 1 a 6." },
+                      { id: Math.random().toString(), type: "stdout", text: "Escolha uma opção (1 a 6): " },
+                    ]);
+                    return;
+                  }
+                  setCliVariables({ opcaoMenu: val });
+                  setCliStep(2);
+                  setHistory((prev) => [
+                    ...prev,
+                    { id: Math.random().toString(), type: "stdin", text: val },
+                    { id: Math.random().toString(), type: "stdout", text: "Digite o 1º número: " },
+                  ]);
+                } else if (cliStep === 2) {
+                  const parsed = parseFloat(val.replace(",", "."));
+                  if (isNaN(parsed)) {
+                    setHistory((prev) => [
+                      ...prev,
+                      { id: Math.random().toString(), type: "stdin", text: val },
+                      { id: Math.random().toString(), type: "error", text: "Erro: Entrada inválida! Por favor, digite números válidos." },
+                      { id: Math.random().toString(), type: "stdout", text: "Digite o 1º número: " },
+                    ]);
+                    return;
+                  }
+                  setCliVariables((prev) => ({ ...prev, num1: parsed }));
+                  setCliStep(3);
+                  setHistory((prev) => [
+                    ...prev,
+                    { id: Math.random().toString(), type: "stdin", text: val },
+                    { id: Math.random().toString(), type: "stdout", text: "Digite o 2º número: " },
+                  ]);
+                } else if (cliStep === 3) {
+                  const parsed2 = parseFloat(val.replace(",", "."));
+                  if (isNaN(parsed2)) {
+                    setHistory((prev) => [
+                      ...prev,
+                      { id: Math.random().toString(), type: "stdin", text: val },
+                      { id: Math.random().toString(), type: "error", text: "Erro: Entrada inválida! Por favor, digite números válidos." },
+                      { id: Math.random().toString(), type: "stdout", text: "Digite o 2º número: " },
+                    ]);
+                    return;
+                  }
+                  const n1 = cliVariables.num1!;
+                  const opt = cliVariables.opcaoMenu!;
+                  let out = "";
+                  let isErr = false;
+                  if (opt === "1") out = `Resultado: ${n1} + ${parsed2} = ${n1 + parsed2}`;
+                  if (opt === "2") out = `Resultado: ${n1} - ${parsed2} = ${n1 - parsed2}`;
+                  if (opt === "3") out = `Resultado: ${n1} * ${parsed2} = ${n1 * parsed2}`;
+                  if (opt === "4") {
+                    if (parsed2 === 0) {
+                      out = "Erro: Divisão por zero não é permitida!";
+                      isErr = true;
+                    } else {
+                      out = `Resultado: ${n1} / ${parsed2} = ${n1 / parsed2}`;
+                    }
+                  }
+                  if (opt === "5") out = `Resultado: ${parsed2}% de ${n1} = ${(n1 * parsed2) / 100}`;
+
+                  setHistory((prev) => [
+                    ...prev,
+                    { id: Math.random().toString(), type: "stdin", text: val },
+                    { id: Math.random().toString(), type: isErr ? "error" : "success", text: out },
+                    { id: Math.random().toString(), type: "banner", text: "===================================" },
+                    { id: Math.random().toString(), type: "stdout", text: "Escolha uma opção (1 a 6): " },
+                  ]);
+                  setCliStep(1);
+                  setCliVariables({});
+                } else {
+                  resetCli();
+                }
               }
             }}
             className="flex items-center gap-1.5 pt-1"

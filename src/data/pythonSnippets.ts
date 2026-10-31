@@ -28,8 +28,9 @@ print("  +  -> Soma")
 print("  -  -> Subtração")
 print("  *  -> Multiplicação")
 print("  /  -> Divisão")
+print("  %  -> Porcentagem")
 
-operacao = input("Escolha a operação (+, -, *, /): ").strip()
+operacao = input("Escolha a operação (+, -, *, /, %): ").strip()
 num2 = float(input("Digite o segundo número: "))
 
 # 2. Estrutura condicional para calcular o resultado
@@ -53,8 +54,13 @@ elif operacao == "/":
         resultado = num1 / num2
         print(f"\\nResultado: {num1} / {num2} = {resultado}")
 
+elif operacao == "%":
+    # Cálculo de porcentagem: num2% de num1 (ex: 15% de 200 = 30)
+    resultado = (num1 * num2) / 100
+    print(f"\\nResultado: {num2}% de {num1} = {resultado}")
+
 else:
-    print(f"\\nOperação inválida '{operacao}'! Escolha +, -, * ou /.")
+    print(f"\\nOperação inválida '{operacao}'! Escolha +, -, *, / ou %.")
 
 print("=" * 40)
 print("Fim do cálculo. Obrigado por usar a calculadora!")
@@ -83,6 +89,10 @@ def dividir(a, b):
         return "Erro: Divisão por zero não é permitida!"
     return a / b
 
+def calcular_porcentagem(valor, taxa):
+    """Calcula a taxa percentual de um valor (ex: taxa% de valor)."""
+    return (valor * taxa) / 100
+
 def exibir_menu():
     print("\\n" + "=" * 35)
     print("      MENU DA CALCULADORA")
@@ -91,20 +101,21 @@ def exibir_menu():
     print("2. Subtrair (-)")
     print("3. Multiplicar (*)")
     print("4. Dividir (/)")
-    print("5. Sair do programa")
+    print("5. Porcentagem (%)")
+    print("6. Sair do programa")
     print("=" * 35)
 
 # Loop principal: mantém a calculadora aberta até o usuário escolher sair
 while True:
     exibir_menu()
-    opcao = input("Escolha uma opção (1 a 5): ").strip()
+    opcao = input("Escolha uma opção (1 a 6): ").strip()
 
-    if opcao == "5":
+    if opcao == "6":
         print("Encerrando a calculadora... Até logo!")
         break
 
-    if opcao not in ("1", "2", "3", "4"):
-        print("Opção inválida! Digite um número de 1 a 5.")
+    if opcao not in ("1", "2", "3", "4", "5"):
+        print("Opção inválida! Digite um número de 1 a 6.")
         continue
 
     try:
@@ -126,6 +137,9 @@ while True:
             print(resp)
         else:
             print(f"Resultado: {n1} / {n2} = {resp}")
+    elif opcao == "5":
+        resultado = calcular_porcentagem(n1, n2)
+        print(f"Resultado: {n2}% de {n1} = {resultado}")
 `;
 
 export const BASIC_COMPONENTS_EXPLANATION: CodeComponentExplanation[] = [

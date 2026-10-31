@@ -1,517 +1,259 @@
-# 🐍 Calculadora Simples em Python
+# 🐍 Calculadora Python — Evolução Desafio 02 (Alura & Google Startups)
 
-Uma aplicação educacional moderna e interativa desenvolvida para quem está dando os primeiros passos no aprendizado de programação. O projeto ensina a construir uma calculadora em **Python** que realiza as quatro operações matemáticas básicas, oferecendo uma experiência prática com **terminal interativo em tempo real** e **interface gráfica inspirada no iPhone (iOS)**.
+Uma aplicação educacional moderna desenvolvida durante a **Imersão de Engenharia de Software com IA**, promovida pela **Alura** em parceria oficial com o **Google Startups**.
+
+Esta versão representa a **evolução completa do Desafio 01 para o Desafio 02**, onde o projeto da calculadora em Python foi expandido com uma nova funcionalidade matemática (**Cálculo de Porcentagem**), novos testes automatizados de garantia de qualidade e suporte integrado na **interface gráfica inspirada no iPhone (iOS)** e no **console CLI em tempo real**, tudo desenvolvido através de co-criação acelerada por agente de Inteligência Artificial (**Google Antigravity**).
 
 <p align="left">
   <a href="https://calculatora-py-iniciantes.netlify.app" target="_blank">
     <img src="https://img.shields.io/badge/🚀_Acessar_Aplicação-Online_no_Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="Deploy no Netlify">
   </a>
+  <img src="https://img.shields.io/badge/Desafio_02-Evolução_com_IA-8A2BE2?style=for-the-badge&logo=google&logoColor=white" alt="Desafio 2">
+  <img src="https://img.shields.io/badge/Agente-Google_Antigravity-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Antigravity">
   <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3">
   <img src="https://img.shields.io/badge/Design-iPhone_iOS-black?style=for-the-badge&logo=apple&logoColor=white" alt="iOS Design">
 </p>
 
-> 🌐 **Link da Aplicação no Ar:** [https://calculatora-py-iniciantes.netlify.app](https://calculatora-py-iniciantes.netlify.app)
+> 🌐 **Link da Aplicação no Ar:** [https://calculatora-py-iniciantes.netlify.app](https://calculatora-py-iniciantes.netlify.app)  
+> 🤖 **Documentação de Engenharia de Prompt (Método GCCD):** Veja o arquivo [`AGENTS.md`](./AGENTS.md)
 
 ---
 
 ## 📌 Sumário
 
-- [Visão Geral](#-visão-geral)
-- [Contexto: Imersão IA (Alura & Google)](#-contexto-imersão-ia-alura--google)
-- [Engenharia de Prompt: Do Inicial ao Avançado](#-engenharia-de-prompt-do-inicial-ao-avançado)
-- [Funcionalidades Principais](#-funcionalidades-principais)
-- [Código-Fonte em Python (`calculadora.py`)](#-código-fonte-em-python-calculadorapy)
-- [Explicação dos Principais Componentes](#-explicação-dos-principais-componentes)
-- [Interface Gráfica e Ambientes de Teste](#-interface-gráfica-e-ambientes-de-teste)
-- [Como Clonar o Repositório do GitHub](#-como-clonar-o-repositório-do-github)
-- [Como Executar o Script Python no seu Computador](#-como-executar-o-script-python-no-seu-computador)
-- [Como Executar a Aplicação Web Interativa](#-como-executar-a-aplicação-web-interativa-calculadora-ios--terminal)
-- [Como Fazer o Deploy da Aplicação no Ar](#-como-fazer-o-deploy-da-aplicação-no-ar-grátis)
+- [Visão Geral: O que foi o Desafio 01?](#-visão-geral-o-que-foi-o-desafio-01)
+- [A Evolução: O Desafio 02 com Google Antigravity](#-a-evolução-o-desafio-02-com-google-antigravity)
+- [Engenharia de Prompt: Método GCCD (`AGENTS.md`)](#-engenharia-de-prompt-método-gccd-agentsmd)
+- [Passo a Passo da Evolução: Os 3 Prompts e Seus Resultados](#-passo-a-passo-da-evolução-os-3-prompts-e-seus-resultados)
+  - [Passo 1: Análise e Onboarding da Estrutura](#passo-1-análise-e-onboarding-da-estrutura)
+  - [Passo 2: Implementação da Operação de Porcentagem (%)](#passo-2-implementação-da-operação-de-porcentagem-)
+  - [Passo 3: Testes Cruzados e Validação (Terminal + Interface Gráfica)](#passo-3-testes-cruzados-e-validação-terminal--interface-gráfica)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Desafios Práticos para Evoluir](#-desafios-práticos-para-evoluir)
-- [Licença](#-licença)
+- [Como Executar no seu Computador](#-como-executar-no-seu-computador)
+  - [Executar os Scripts Python no Terminal](#executar-os-scripts-python-no-terminal)
+  - [Executar a Aplicação Web Interativa](#executar-a-aplicação-web-interativa)
+- [Como Fazer o Deploy da Aplicação no Ar](#-como-fazer-o-deploy-da-aplicação-no-ar-grátis)
+- [Créditos e Parceria](#-créditos-e-parceria)
 
 ---
 
-## 🎯 Visão Geral
+## 🎯 Visão Geral: O que foi o Desafio 01?
 
-Ao aprender a programar, criar uma calculadora é um dos exercícios mais eficazes para fixar os conceitos centrais da ciência da computação:
-1. **Entrada de dados**: Capturar o que o usuário digita no teclado com `input()`.
-2. **Conversão de tipos (Casting)**: Transformar texto em números decimais com `float()`.
-3. **Tomada de decisões**: Direcionar o fluxo do programa com `if`, `elif` e `else`.
-4. **Tratamento de exceções e regras matemáticas**: Evitar o travamento do programa ao detectar divisões por zero (`ZeroDivisionError`).
-5. **Saída formatada**: Apresentar os resultados de forma elegante usando *f-strings*.
+No **Desafio 01** da Imersão Alura & Google Startups, o objetivo central foi construir a fundação de uma calculadora em Python que realizasse com segurança as **quatro operações matemáticas básicas**:
+1. **Soma (`+`)**
+2. **Subtração (`-`)**
+3. **Multiplicação (`*`)**
+4. **Divisão (`/`)** com tratamento rigoroso contra divisão por zero (`ZeroDivisionError`).
 
----
-
-## 🎓 Contexto: Imersão IA (Alura & Google)
-
-Este projeto foi desenvolvido como o **Desafio 1 (Individual)** proposto para os alunos durante a **Imersão de Engenharia de Software com IA**, promovida pela **Alura** em parceria oficial com o **Google**.
-
-O objetivo do desafio foi explorar o potencial do **Google AI Studio** como ferramenta de co-criação e engenharia de software acelerada por Inteligência Artificial, indo além de um simples script de terminal e transformando um exercício básico de lógica em uma **aplicação educacional interativa completa**, com interface gráfica moderna e recursos visuais de aprendizado.
+O projeto foi entregue com duas abordagens de aprendizagem:
+* **Script Sequencial Básico ([`calculadora.py`](calculadora.py)):** Fluxo linear de cima para baixo focado em fixar `input()`, conversão de tipos com `float()`, tomada de decisão com `if/elif/else` e interpolação de strings (*f-strings*).
+* **Script Modular com Funções ([`calculadora_modular.py`](calculadora_modular.py)):** Estruturado com funções reutilizáveis (`def`), menu interativo em loop (`while True`) e tratamento de exceções com `try/except ValueError`.
+* **Ambiente Educacional Web ([`src/`](src/)):** Interface visual desenvolvida em React 19 e Tailwind CSS inspirada na estética do iPhone (iOS) e com um console CLI interativo.
 
 ---
 
-## 🧠 Engenharia de Prompt: Do Inicial ao Avançado
+## 🚀 A Evolução: O Desafio 02 com Google Antigravity
 
-Durante a imersão, o processo de construção com IA evoluiu a partir de iterações sucessivas. Abaixo registramos o prompt inicial utilizado e a versão completa/otimizada que consolida todo o escopo do projeto final.
+No **Desafio 02**, o desafio foi colocar em prática o paradigma de **Engenharia de Software Acelerada por Agentes Autônomos de IA**, utilizando o **Google Antigravity**.
 
-### 1. Prompt Inicial (Ponto de Partida)
-Este foi o prompt inicial utilizado no **Google AI Studio** para solicitar a criação da calculadora com as operações básicas e a interface gráfica:
-
-```text
-Quero criar uma calculadora simples em Python que realize as quatro operações matemáticas básicas. Estou começando a aprender programação, então gere um código simples e organizado, com explicações sobre seus principais componentes. O design da calculadora deve ser como modelo do iPhone (iOS).
-```
-
-### 2. Prompt Completo e Otimizado (Prompt Master)
-Se você quiser reproduzir exatamente esta aplicação web completa em um único comando no **Google AI Studio**, utilize este prompt detalhado com técnicas avançadas de Engenharia de Prompt (definição de persona, escopo técnico, restrições e diretrizes de design):
-
-```markdown
-Atue como um Engenheiro de Software Sênior e Especialista em Ensino de Programação.
-
-Desenvolva uma aplicação web educacional e interativa em React 19, TypeScript e Tailwind CSS voltada para quem está começando a aprender Python. O tema central é a criação de uma calculadora que realize as quatro operações matemáticas básicas (Soma, Subtração, Multiplicação e Divisão).
-
-A aplicação deve conter:
-
-1. CÓDIGO PYTHON EDUCACIONAL (calculadora.py):
-   - Código limpo, legível e ricamente comentado para iniciantes.
-   - Uso de input() com conversão segura para float().
-   - Menu claro de operações (+, -, *, /).
-   - Estrutura condicional completa (if, elif, else) para tomada de decisão.
-   - Tratamento preventivo de divisão por zero (if num2 == 0: evitando ZeroDivisionError).
-   - Formatação moderna de saída com f-strings: print(f"Resultado: {num1} {operacao} {num2} = {resultado}").
-   - Botões para copiar o código e baixar o arquivo .py para rodar localmente.
-
-2. AMBIENTE VISUAL DUPLO (LADO A LADO):
-   - À esquerda: Visualizador do código Python com numeração de linhas e destaque sintático.
-   - À direita: CALCULADORA INTERATIVA NO ESTILO APPLE IPHONE (iOS):
-     * Chassi em preto absoluto OLED (bg-black) com cantos arredondados contínuos.
-     * Teclado em grade 4x5 com botões estritamente circulares (rounded-full aspect-square).
-     * Paleta oficial do iOS:
-       - Linha de funções (AC, C, ⌫): Cinza claro metálico (#a5a5a5) com texto preto.
-       - Teclado numérico (0 a 9, ., ±): Cinza escuro grafite (#333333) com números brancos.
-       - Coluna de operações (÷, ×, −, +, =): Laranja vibrante Apple (#ff9f0a).
-     * Efeito ativo do iOS: ao clicar em uma operação (+, -, *, /), o botão inverte para fundo branco com texto laranja enquanto aguarda o segundo número.
-     * Visor digital com números grandes e nítidos, exibindo no topo o rastreamento das variáveis (num1: X, op, num2: Y) sem sobrescrever num1 pelo resultado ao pressionar '='.
-     * Alternância fácil no topo para modo "Console CLI" (terminal clássico de texto) para quem deseja simular a linha de comando tradicional.
-     * Caixa de rastreamento abaixo da calculadora mostrando em tempo real qual linha do Python acabou de ser executada.
-     * Botões de testes rápidos (ex: 15+25, 50-18, 7.5*4, 100/4 e 42/0).
-
-3. ABAS PEDAGÓGICAS COMPLEMENTARES:
-   - "Explicação dos Componentes": cards interativos sobre input(), float(), if/elif/else, divisão por zero e f-strings, apontando as linhas exatas do código e erros comuns de iniciantes.
-   - "Simulador Passo a Passo da Memória": stepper visual mostrando linha por linha a criação de num1, operacao, num2 e resultado na memória do Python com testes booleanos (True/False).
-   - "Desafios Práticos": 3 exercícios (potência **, aceitar vírgula com .replace() e limitar casas decimais com :.2f) com dicas e soluções ocultáveis.
-   - "Como Rodar no seu Computador": instruções passo a passo para Windows, macOS e Linux.
-
-Mantenha a interface livre de bibliotecas pesadas desnecessárias, com código modular, tipagem estrita no TypeScript e foco na experiência de quem está aprendendo a programar.
-```
+Em vez de alterar arquivos de código manualmente, a evolução do sistema foi conduzida passo a passo por um desenvolvedor em modo de pair programming com o agente:
+1. **Onboarding Guiado:** Análise automatizada da arquitetura para quem está começando.
+2. **Nova Funcionalidade:** Implementação da operação matemática de **Porcentagem (%)** em ambos os scripts Python e sincronização na interface web.
+3. **Garantia de Qualidade (QA):** Bateria de testes automatizados e integração completa nos componentes gráficos (novo botão `%` na calculadora iOS e no console CLI).
 
 ---
 
-## ✨ Funcionalidades Principais
+## 🧠 Engenharia de Prompt: Método GCCD (`AGENTS.md`)
 
-- ➕ **As Quatro Operações Básicas**:
-  - Soma (`+`)
-  - Subtração (`-`)
-  - Multiplicação (`*`)
-  - Divisão (`/`)
-- 🛡️ **Proteção contra Divisão por Zero**: Verificação preventiva com condicional antes de realizar a operação.
-- 📱 **Interface Visual no Estilo iPhone (iOS)**:
-  - Chassi em preto absoluto OLED.
-  - Teclas circulares com proporções ergonômicas.
-  - Paleta com botões de função em cinza claro, teclado numérico em grafite e operações em laranja Apple (`#ff9f0a`).
-  - Inversão de cor do operador selecionado (fundo branco e ícone laranja) durante a digitação do segundo número.
-- 💻 **Console / Terminal CLI Integrado**: Permite alternar para uma linha de comando tradicional caso prefira simular o terminal do computador.
-- 🧠 **Rastreamento de Memória e Código em Tempo Real**: Exibe exatamente como as variáveis `num1`, `operacao`, `num2` e `resultado` são atualizadas e qual instrução Python foi disparada.
-- ⚡ **Testes Rápidos com 1 Clique**: Presets para experimentar contas instantâneas (`15 + 25`, `50 - 18`, `7.5 * 4`, `100 / 4` e `42 / 0`).
-- 📥 **Exportação de Código**: Botão integrado para baixar o script pronto (`.py`) ou copiar para a área de transferência.
+Para garantir clareza e reprodutibilidade, cada um dos 3 comandos passados durante o desenvolvimento foi desdobrado no padrão profissional **GCCD**:
+
+* **G — Goal (Objetivo):** A meta objetiva e acionável.
+* **C — Context (Contexto):** Quem é o usuário, quais ferramentas estão ativas e o ecossistema do projeto.
+* **C — Constraints (Restrições):** O que **não** pode ser quebrado, segurança matemática e boas práticas.
+* **D — Data & Deliverables (Dados e Entregáveis):** Entradas, saídas esperadas, código alterado e relatórios de validação.
+
+> 📖 **Consulte o arquivo completo:** Para ver como cada um dos prompts simples abaixo foi formulado na íntegra segundo a metodologia GCCD, acesse o documento dedicado [`AGENTS.md`](./AGENTS.md).
 
 ---
 
-## 📜 Código-Fonte em Python (`calculadora.py`)
+## 👣 Passo a Passo da Evolução: Os 3 Prompts e Seus Resultados
 
-Abaixo está o código-fonte limpo, organizado e comentado para iniciantes:
-
-```python
-# ============================================================
-# CALCULADORA BÁSICA EM PYTHON
-# As quatro operações: Soma (+), Subtração (-), Multiplicação (*) e Divisão (/)
-# ============================================================
-
-print("=" * 40)
-print("     CALCULADORA SIMPLES EM PYTHON")
-print("=" * 40)
-
-# 1. Entrada de dados pelo usuário
-# Usamos float() para aceitar números inteiros (ex: 10) ou decimais (ex: 4.5)
-num1 = float(input("Digite o primeiro número: "))
-
-print("\nOperações disponíveis:")
-print("  +  -> Soma")
-print("  -  -> Subtração")
-print("  *  -> Multiplicação")
-print("  /  -> Divisão")
-
-operacao = input("Escolha a operação (+, -, *, /): ").strip()
-num2 = float(input("Digite o segundo número: "))
-
-# 2. Estrutura condicional para calcular o resultado
-if operacao == "+":
-    resultado = num1 + num2
-    print(f"\nResultado: {num1} + {num2} = {resultado}")
-
-elif operacao == "-":
-    resultado = num1 - num2
-    print(f"\nResultado: {num1} - {num2} = {resultado}")
-
-elif operacao == "*":
-    resultado = num1 * num2
-    print(f"\nResultado: {num1} * {num2} = {resultado}")
-
-elif operacao == "/":
-    # Regra fundamental: divisão por zero não existe na matemática!
-    if num2 == 0:
-        print("\nErro: Não é possível dividir um número por zero!")
-    else:
-        resultado = num1 / num2
-        print(f"\nResultado: {num1} / {num2} = {resultado}")
-
-else:
-    print(f"\nOperação inválida '{operacao}'! Escolha +, -, * ou /.")
-
-print("=" * 40)
-print("Fim do cálculo. Obrigado por usar a calculadora!")
-```
+Abaixo está o registro fiel da jornada iterativa com o agente **Google Antigravity**, mostrando exatamente o que foi solicitado e o resultado entregue a cada passo.
 
 ---
 
-## 🔍 Explicação dos Principais Componentes
+### Passo 1: Análise e Onboarding da Estrutura
 
-### 1. `input()` — Captura do Teclado
-- **Função:** Pausa a execução do script e aguarda o usuário digitar um valor e apertar `Enter`.
-- **Atenção para Iniciantes:** O dado retornado por `input()` é sempre uma **string** (texto), mesmo que você digite apenas números. Se fizermos `num1 = input()` e digitarmos `5` e `2`, o resultado de `num1 + num2` será `'52'` (concatenação de texto) e não `7`.
+#### 💬 Prompt Inicial Simples:
+> *"Tenho um projeto de calculadora em Python que realiza as quatro operações matemáticas básicas. Estou começando a aprender programação e quero entender como os arquivos e as funções estão organizados. Analise o projeto e explique sua estrutura de maneira simples."*
 
-### 2. `float()` — Conversão Numérica (Casting)
-- **Função:** Converte a string capturada em um número de ponto flutuante (decimal).
-- **Vantagem:** Permite que a calculadora faça contas com números inteiros (ex: `10`) e quebrados (ex: `7.5`).
-- **Regra Fundamental do Python:** Em Python nativo, números decimais utilizam obrigatoriamente **ponto** (`5.5`) e não vírgula (`5,5`). No terminal, tentar executar `float("5,5")` dispara o erro `ValueError: could not convert string to float: '5,5'`.
-- **Por que a interface web aceita vírgula?** Por uma decisão de *User Experience (UX)*: para garantir acessibilidade em teclados no padrão brasileiro (ABNT) e evitar frustrações, o simulador web e o teclado virtual da aplicação tratam a entrada automaticamente convertendo vírgula em ponto (`val.replace(",", ".")`).
-- **Por que o script `calculadora.py` não tem isso por padrão?** O script base foi intencionalmente mantido 100% elementar e didático para iniciantes na primeira aula de lógica de programação (usando apenas o básico `float(input())`). Tornar o script tolerante a vírgulas no terminal do computador é exatamente a proposta pedagógica do **Desafio Prático 2**!
+#### ⚡ Resultado e Explicações Trazidas pelo Agente:
+O agente realizou a leitura completa do repositório e entregou uma explicação pedagógica dividindo o projeto em duas camadas complementares:
 
-### 3. `if`, `elif` e `else` — Controle de Fluxo
-- **`if` (se):** Avalia a primeira condição. Se verdadeira, executa o bloco interno.
-- **`elif` (senão se):** Avalia as condições subsequentes em ordem caso as anteriores tenham sido falsas.
-- **`else` (senão):** Plano de contingência final, executado se o usuário tiver digitado uma operação não reconhecida.
-
-### 4. Tratamento de Divisão por Zero (`if num2 == 0:`)
-- **Regra:** Na matemática, dividir por zero é uma operação impossível/indefinida.
-- **No Python:** Tentar executar `10 / 0` trava o programa com a mensagem `ZeroDivisionError: division by zero`.
-- **Solução:** Validamos se o divisor (`num2`) é igual a zero antes de tentar efetuar o cálculo.
-
-### 5. F-Strings (`f"..."`) — Saída Formatada
-- Introduzidas no Python 3.6, permitem interpolar expressões e variáveis diretamente dentro de chaves `{}`:
-  ```python
-  print(f"Resultado: {num1} + {num2} = {resultado}")
-  ```
+1. **Os Scripts em Python (Lógica Central):**
+   * **[`calculadora.py`](calculadora.py):** Código linear explicando a captura de texto com `input()`, a conversão para número decimal com `float()`, o controle de fluxo com `if/elif/else`, a barreira de segurança contra `num2 == 0` na divisão e o formato elegante das *f-strings*.
+   * **[`calculadora_modular.py`](calculadora_modular.py):** Conceito de funções reutilizáveis (`def somar`, `def subtrair`, `def multiplicar`, `def dividir`, `def exibir_menu`), o loop contínuo `while True` que mantém a calculadora aberta e a proteção com `try/except ValueError` para evitar travamentos caso o usuário digite texto onde se espera número.
+2. **A Aplicação Web Interativa (`src/`):**
+   * Explicou que o projeto continha uma interface moderna em React 19 + TypeScript para simular o terminal e uma calculadora no estilo iPhone.
+3. **Tabela de Arquivos do Projeto:**
+   * Mapeou detalhadamente o papel de cada arquivo na raiz do repositório.
 
 ---
 
-## 🎨 Interface Gráfica e Ambientes de Teste
+### Passo 2: Implementação da Operação de Porcentagem (%)
 
-A aplicação web disponibiliza dois modos de interação:
+#### 💬 Prompt Inicial Simples:
+> *"Agora quero adicionar uma funcionalidade para calcular porcentagens. Implemente essa operação mantendo as funcionalidades existentes e explique quais alterações foram realizadas no código."*
 
-| Modo | Descrição | Estilo Visual |
-| :--- | :--- | :--- |
-| **Calculadora Visual** | Interface com teclado completo (0-9, operações, C, AC, ⌫, ±, =) e display digital integrado | Inspirado no **iPhone (iOS)** com botões circulares e estados ativos |
-| **Console CLI** | Terminal interativo clássico idêntico à execução do Python no Prompt de Comando / Terminal | Fundo escuro com prompt `>` e saídas com destaque de cor |
+#### ⚡ Resultado e Explicações Trazidas pelo Agente:
+O agente introduziu a regra matemática da porcentagem e realizou alterações cirúrgicas mantendo 100% das 4 operações anteriores:
 
-Além disso, a plataforma inclui:
-- **Simulador Passo a Passo da Memória**: Mostra a criação de cada variável e a avaliação booleana (`True`/`False`) de cada condição `if/elif`.
-- **Modo Modular**: Versão do código estruturada em funções (`def somar()`, `def dividir()`, etc.) e laço de repetição contínuo (`while True`).
+1. **Lógica Matemática Aplicada:**
+   $$\text{Resultado} = \frac{\text{valor} \times \text{taxa}}{100}$$
+   *Exemplo:* $15\%$ de $200 = \frac{200 \times 15}{100} = 30.0$.
 
-[Deploy da Calculadora em Python para iniciantes](https://imersao-eng-ia-desafio01-calculador-chi.vercel.app)
+2. **Alterações no [`calculadora.py`](calculadora.py):**
+   * Adicionou `  %  -> Porcentagem` na lista visual de operações.
+   * Atualizou o prompt para: `Escolha a operação (+, -, *, /, %): `.
+   * Inseriu o bloco condicional da porcentagem:
+     ```python
+     elif operacao == "%":
+         # Cálculo de porcentagem: num2% de num1 (ex: 15% de 200 = 30)
+         resultado = (num1 * num2) / 100
+         print(f"\nResultado: {num2}% de {num1} = {resultado}")
+     ```
+   * Atualizou a mensagem de erro do `else`: `Escolha +, -, *, / ou %.`
 
-### Imagens Demonstrativas da Aplicação
-<img width="1100" height="916" alt="image" src="https://github.com/user-attachments/assets/6133dd17-3fdf-4b42-a52a-cab40e05308a" />
-<img width="1146" height="905" alt="image" src="https://github.com/user-attachments/assets/9be85e2d-9109-43a4-bc71-ef835fb5eea1" />
-<img width="1129" height="915" alt="image" src="https://github.com/user-attachments/assets/7efbff0a-efad-489c-b75b-3aac62ec452c" />
+3. **Alterações no [`calculadora_modular.py`](calculadora_modular.py):**
+   * Criou a função dedicada:
+     ```python
+     def calcular_porcentagem(valor, taxa):
+         """Calcula a taxa percentual de um valor (ex: taxa% de valor)."""
+         return (valor * taxa) / 100
+     ```
+   * Atualizou o menu em `exibir_menu()`: adicionou a opção `5. Porcentagem (%)` e deslocou a opção de saída para `6. Sair do programa`.
+   * Atualizou a checagem do loop para `if opcao not in ("1", "2", "3", "4", "5"):` e saída no `"6"`.
+   * Adicionou o despacho da opção `5` para a função `calcular_porcentagem(n1, n2)`.
 
-
-
-
----
-
-## 📥 Como Clonar o Repositório do GitHub
-
-Para baixar o projeto no seu computador, você pode utilizar o **Git** (recomendado) ou baixar o arquivo compactado em **ZIP**.
-
-### 1. Verifique se você tem o Git instalado
-
-Abra o terminal do seu sistema operacional e execute:
-
-```bash
-git --version
-```
-
-- Se exibir algo como `git version 2.x.x`, o Git já está pronto para uso.
-- Caso não tenha o Git instalado:
-  - **Windows**: Baixe em [git-scm.com](https://git-scm.com) ou execute no PowerShell: `winget install --id Git.Git -e --source winget`
-  - **macOS**: Instale via Homebrew: `brew install git` (ou instale os Command Line Tools com `xcode-select --install`)
-  - **Linux (Ubuntu/Debian)**: `sudo apt update && sudo apt install git -y`
-  - **Linux (Fedora)**: `sudo dnf install git -y`
-  - **Linux (Arch)**: `sudo pacman -S git`
+4. **Sincronização na Web:** Atualizou `src/data/pythonSnippets.ts` para que os trechos exibidos no navegador permanecessem rigorosamente idênticos aos scripts em disco.
 
 ---
 
-### 2. Clonando o repositório pelo Terminal
+### Passo 3: Testes Cruzados e Validação (Terminal + Interface Gráfica)
 
-Escolha o terminal do seu sistema:
-- **Windows**: Abra o **Prompt de Comando (CMD)**, o **PowerShell** ou o **Git Bash**.
-- **macOS**: Abra o aplicativo **Terminal** (pressione `Cmd + Espaço`, digite `Terminal` e aperte `Enter`).
-- **Linux**: Abra o seu emulador de terminal favorito (`Ctrl + Alt + T`).
+#### 💬 Prompt Inicial Simples:
+> *"Agora teste a aplicação e verifique os resultados tanto no terminal interativo quanto na interface gráfica"*
 
-Execute o comando:
+#### ⚡ Resultado e Explicações Trazidas pelo Agente:
+O agente preparou um script de verificação automatizada, testou todos os cenários da matemática da calculadora e adaptou os componentes de tela:
 
-```bash
-# Clone o repositório
-git clone https://github.com/SEU-USUARIO/calculadora-python-iniciantes.git
+#### 📊 Tabela de Testes Automatizados Executados:
+| Teste | Entrada (`num1`, `op`, `num2`) | Saída Obtida | Status |
+| :--- | :--- | :--- | :---: |
+| **Soma** | `15` $+$ `25` | `40` | ✅ PASS |
+| **Subtração** | `50` $-$ `18` | `32` | ✅ PASS |
+| **Multiplicação** | `7.5` $\times$ `4` | `30` | ✅ PASS |
+| **Divisão** | `100` $\div$ `4` | `25` | ✅ PASS |
+| **Divisão por Zero** | `42` $\div$ `0` | `Erro: Divisão por zero não é permitida!` | ✅ PASS |
+| **Porcentagem (Cenário 1)** | `200` `%` `15` | `30.0` *(15% de 200)* | ✅ PASS |
+| **Porcentagem (Cenário 2)** | `80` `%` `50` | `40.0` *(50% de 80)* | ✅ PASS |
+| **Porcentagem (Cenário 3)** | `55.5` `%` `10` | `5.55` *(10% de 55.5)* | ✅ PASS |
 
-# Entre na pasta do projeto
-cd calculadora-python-iniciantes
-```
-
-> 💡 **Alternativa sem Git (Download ZIP):**
-> Se preferir não usar o Git, clique no botão verde **Code** no topo desta página do GitHub, selecione **Download ZIP**, descompacte a pasta no seu computador e abra o terminal dentro dela.
-
----
-
-## 🚀 Como Executar o Script Python no seu Computador
-
-O repositório já inclui o script em Python pronto para ser executado no terminal.
-
-### Pré-requisitos
-- Ter o **Python 3.8 ou superior** instalado:
-  - **Windows**: Baixe o instalador em [python.org](https://www.python.org). **Importante:** Na primeira tela do instalador, marque a caixinha **"Add Python to PATH"**!
-  - **macOS**: Instale via Homebrew com `brew install python` ou baixe no [python.org](https://www.python.org).
-  - **Linux**: Já costuma vir pré-instalado. Se necessário: `sudo apt install python3 -y`.
-
----
-
-### Passo a Passo por Sistema Operacional
-
-#### 🪟 No Windows (CMD ou PowerShell):
-```powershell
-# Verifique se o Python está acessível
-python --version
-# (ou py --version)
-
-# Execute o script da calculadora básica:
-python calculadora.py
-# (Caso dê erro de comando não encontrado no Windows, tente: py calculadora.py)
-
-# Para executar a versão modular com funções e menu:
-python calculadora_modular.py
-```
-
-#### 🍎 No macOS (Terminal):
-```bash
-# Verifique a versão do Python 3
-python3 --version
-
-# Execute o script da calculadora básica:
-python3 calculadora.py
-
-# Ou a versão modular:
-python3 calculadora_modular.py
-```
-
-#### 🐧 No Linux (Terminal Bash / Zsh):
-```bash
-# Verifique a versão
-python3 --version
-
-# Execute o script da calculadora básica:
-python3 calculadora.py
-
-# Ou a versão modular:
-python3 calculadora_modular.py
-```
-
----
-
-## 💻 Como Executar a Aplicação Web Interativa (Calculadora iOS + Terminal)
-
-Se você quiser rodar a **interface gráfica interativa completa** (com o simulador visual no estilo iPhone, console CLI em tempo real e visualizador de memória):
-
-### Pré-requisito: Node.js
-A aplicação web foi desenvolvida com **React 19**, **Vite (v8.x)** e **Tailwind CSS**. De acordo com a documentação oficial do Vite, é necessário ter o **Node.js (versão 20.19+ ou 22.12+)** instalado (recomendamos a versão **Node.js 22 LTS**):
-
-- **Windows**: Baixe o instalador LTS (Node 22 LTS) em [nodejs.org](https://nodejs.org) ou instale via PowerShell: `winget install OpenJS.NodeJS.LTS`
-- **macOS**: Instale via Homebrew: `brew install node@22` ou baixe o pacote `.pkg` no [nodejs.org](https://nodejs.org)
-- **Linux (Ubuntu/Debian)**:
-  ```bash
-  # Instalação do Node.js 22 LTS via repositório oficial NodeSource:
-  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-  sudo apt install -y nodejs
-  ```
-- **Verificação no terminal**:
-  ```bash
-  node -v   # Deve exibir v20.19.0+ ou v22.12.0+ (ex: v22.23.x)
-  npm -v    # Deve exibir v10.x ou superior
-  ```
-
----
-
-### Passo a Passo para Iniciar a Aplicação Web
-
-Abra o terminal dentro da pasta clonada (`calculadora-python-iniciantes`) e execute os comandos correspondentes:
-
-```bash
-# 1. Instale todas as dependências do projeto
-npm install
-
-# 2. Inicie o servidor local de desenvolvimento
-npm run dev
-```
-
-Após rodar o comando, o terminal exibirá uma mensagem semelhante a:
-```text
-  VITE v8.x.x  ready in 250 ms
-
-  ➜  Local:   http://localhost:3000/
-  ➜  Network: use --host to expose
-```
-
-Abra o seu navegador de internet favorito (Chrome, Edge, Firefox, Safari) e acesse:
-👉 **`http://localhost:3000`**
-
----
-
-## ❓ Resolução de Dúvidas Frequentes (Troubleshooting)
-
-### 1. `python` ou `'py' não é reconhecido como um comando interno ou externo` (Windows)
-- **Causa:** O Python foi instalado sem a opção de adicionar as variáveis de ambiente ao sistema.
-- **Solução:** Reabra o instalador do Python, clique em **Modify** e certifique-se de marcar a opção **"Add Python to environment variables / Add Python to PATH"**. Reinicie o Prompt de Comando após isso.
-
-### 2. `zsh: command not found: python` (macOS)
-- **Causa:** No macOS moderno, o interpretador padrão chama-se `python3` (com o número 3 no final).
-- **Solução:** Utilize sempre `python3 calculadora.py`.
-
-### 3. `Port 3000 is already in use` ao rodar a aplicação web
-- **Causa:** Outro programa já está utilizando a porta 3000.
-- **Solução:** O Vite automaticamente oferecerá outra porta (ex: `http://localhost:3001`). Basta acessar o endereço informado no seu terminal.
-
----
-
-## 🚀 Como Fazer o Deploy da Aplicação no Ar (Grátis)
-
-Como esta aplicação é construída com **Vite + React + Tailwind CSS**, ela gera arquivos estáticos ultra-leves na pasta `dist/` ao ser compilada. Você pode colocá-la no ar gratuitamente em menos de 2 minutos para compartilhar com amigos, professores ou recrutadores.
-
-### 🌟 Opção 1: Vercel (Recomendada e Mais Rápida - 1 minuto)
-
-A [Vercel](https://vercel.com) detecta automaticamente projetos Vite e configura o deploy contínuo integrado ao seu GitHub:
-
-1. Suba o repositório para a sua conta no **GitHub**.
-2. Acesse [vercel.com](https://vercel.com) e faça login com sua conta do GitHub.
-3. No painel da Vercel, clique no botão **"Add New..."** e selecione **"Project"**.
-4. Localize o repositório da sua calculadora na lista e clique em **"Import"**.
-5. As configurações padrão já estarão perfeitamente preenchidas:
-   - **Framework Preset:** `Vite`
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-6. Clique no botão azul **"Deploy"**.
-7. Em cerca de 30 segundos sua aplicação estará no ar com link público HTTPS (ex: `https://calculadora-python-ios.vercel.app`) e se atualizará automaticamente a cada `git push`!
-
-> 💡 **Dica de Compatibilidade:** O projeto já inclui o arquivo `.npmrc` configurado com `legacy-peer-deps=true` para garantir que o resolvedor de pacotes da Vercel execute o `npm install` sem conflitos de dependências peer.
-
----
-
-### ⚡ Opção 2: Netlify (Via Git ou Arrastar e Soltar)
-
-> 🚀 **Deploy Oficial deste Projeto:** [https://calculatora-py-iniciantes.netlify.app](https://calculatora-py-iniciantes.netlify.app)
-
-A [Netlify](https://www.netlify.com) também oferece hospedagem gratuita com SSL e CDN global:
-
-#### Modo A: Conectando com o GitHub
-1. Acesse [netlify.com](https://www.netlify.com) e crie sua conta com o GitHub.
-2. Clique em **"Add new site"** > **"Import an existing project"**.
-3. Selecione o **GitHub** e escolha o repositório da calculadora.
-4. Mantenha os comandos padrão:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-5. Clique em **"Deploy site"**.
-
-#### Modo B: Arrastar e Soltar (Sem nem precisar conectar conta)
-1. No seu terminal local, execute:
-   ```bash
-   npm run build
-   ```
-   Isso gerará a pasta `dist/` dentro do projeto.
-2. Acesse [app.netlify.com/drop](https://app.netlify.com/drop).
-3. Arraste e solte a pasta `dist/` diretamente na área pontilhada da tela. O site vai ao ar imediatamente!
-
----
-
-### 🐙 Opção 3: GitHub Pages
-
-Para publicar diretamente dentro do próprio repositório no GitHub:
-
-1. No arquivo `vite.config.ts`, defina a propriedade `base` com o nome do seu repositório:
-   ```ts
-   export default defineConfig({
-     base: '/nome-do-seu-repositorio/',
-     // ... demais configurações
-   });
-   ```
-2. No seu repositório no GitHub, acesse a aba **Settings** > **Pages**.
-3. Em **Build and deployment** > **Source**, selecione **GitHub Actions**.
-4. Escolha o template padrão de **Static HTML** ou configure um workflow do Vite para fazer o build e deploy automatizado no branch `gh-pages`.
+#### 📱 Melhorias Implementadas na Interface Gráfica ([`InteractiveTerminal.tsx`](src/components/InteractiveTerminal.tsx)):
+1. **Novo Botão `%` na Calculadora iOS:** Integrado na linha superior dos botões da calculadora com a estilização e destaque visual autêntico do iPhone.
+2. **Ação Rápida de Teste (Preset):** Adicionado o botão `200 % 15 (15%)` para permitir que o usuário teste a porcentagem com um único clique na tela.
+3. **Inspetor de Código em Tempo Real:** Exibe o trecho exato em Python executado no momento da conta de porcentagem.
+4. **Console CLI Interativo Atualizado:** O terminal simulado foi ajustado para suportar `%` no modo básico e opções 1 a 6 no modo modular.
+5. **Garantia de Build:** Compilação com `vite build` gerando os arquivos de distribuição em `dist/` com **0 erros**.
 
 ---
 
 ## 📁 Estrutura do Projeto
 
 ```text
-├── calculadora.py                 # Script Python básico (4 operações) para rodar no terminal
-├── calculadora_modular.py         # Script Python modular com funções (def) e menu em loop (while)
+├── AGENTS.md                      # Engenharia de prompt detalhada com o método GCCD
+├── README.md                      # Documentação completa da evolução Desafio 1 -> Desafio 2
+├── calculadora.py                 # Script Python sequencial (4 operações + Porcentagem)
+├── calculadora_modular.py         # Script Python modular com funções def, menu e repetição
 ├── index.html                     # Ponto de entrada HTML da aplicação web
-├── metadata.json                  # Metadados do projeto
-├── package.json                   # Dependências e scripts do Node.js
-├── README.md                      # Documentação completa do projeto
-├── tsconfig.json                  # Configuração do TypeScript
+├── package.json                   # Dependências do Node.js e scripts de execução
+├── tsconfig.json                  # Configuração do compilador TypeScript
 ├── vite.config.ts                 # Configurações do Vite e Tailwind CSS
 └── src/
     ├── App.tsx                    # Layout principal e navegação em abas
     ├── main.tsx                   # Inicialização do React 19
     ├── index.css                  # Estilos globais e Tailwind CSS
     ├── data/
-    │   └── pythonSnippets.ts      # Códigos Python, desafios e mapeamento de componentes
+    │   └── pythonSnippets.ts      # Trechos de código Python sincronizados para estudo
     └── components/
-        ├── InteractiveTerminal.tsx # Calculadora estilo iOS e Console CLI
+        ├── InteractiveTerminal.tsx # Calculadora estilo iOS com botão % e Console CLI
         ├── CodeDisplay.tsx        # Visualizador de código com syntax highlight
-        ├── ComponentExplainer.tsx # Explicação pedagógica dos componentes
-        ├── ExecutionStepper.tsx   # Simulador visual de memória e condicionais
-        ├── ChallengesSection.tsx  # Desafios práticos com dicas e soluções
-        ├── HowToRunGuide.tsx      # Guia de execução passo a passo no computador
-        └── PromptEngineeringGuide.tsx # Guia de Engenharia de Prompt e Contexto Alura/Google
+        ├── ComponentExplainer.tsx # Explicação pedagógica dos blocos de código
+        ├── ExecutionStepper.tsx   # Simulador visual de fluxo de memória
+        ├── ChallengesSection.tsx  # Desafios práticos para evolução do aluno
+        └── HowToRunGuide.tsx      # Guia de execução passo a passo
 ```
 
 ---
 
-## 🏆 Desafios Práticos para Evoluir
+## 💻 Como Executar no seu Computador
 
-Após dominar as quatro operações básicas, tente implementar estas melhorias no seu código Python:
+### Executar os Scripts Python no Terminal
 
-1. **Adicionar Exponenciação / Potência (`**`)**:
-   - Utilize o operador `**` (ex: `2 ** 3 = 8`).
-2. **Suporte a Vírgulas Decimais**:
-   - Utilize `.replace(",", ".")` no texto capturado pelo `input()` para permitir que o usuário digite tanto `5.5` quanto `5,5`.
-   - 💡 *Por que este desafio existe se a interface web já aceita vírgula?* A interface web e o simulador deste projeto contam com tratamento automático de UX para comodidade no navegador. No entanto, o script Python puro (`calculadora.py`) executado diretamente no terminal do seu computador com `python calculadora.py` ainda usa `float(input())` nativo e trava com `ValueError` ao receber `5,5`. O desafio é justamente replicar no seu código Python essa mesma resiliência da aplicação web!
-3. **Formatação de Duas Casas Decimais**:
-   - Formate a saída para divisões periódicas usando `{resultado:.2f}` dentro da f-string (ex: `10 / 3` resultará em `3.33`).
+Abra o PowerShell ou Terminal na pasta do projeto:
+
+```powershell
+# 1. Executar a versão básica (com porcentagem):
+python calculadora.py
+
+# 2. Executar a versão modular com funções e menu:
+python calculadora_modular.py
+```
+
+> [!TIP]
+> **Instalação do Python no Windows:** Caso o comando `python` abra a loja Microsoft Store, você pode instalar a versão oficial do Python 3.12 diretamente pelo PowerShell com o comando:
+> ```powershell
+> winget install Python.Python.3.12
+> ```
 
 ---
 
-## 📄 Licença
+### Executar a Aplicação Web Interativa
 
-Este projeto é de código aberto sob a licença [Apache 2.0](LICENSE). Sinta-se livre para utilizar, modificar e compartilhar para fins de estudo e ensino.
+Para rodar a interface gráfica com o simulador iOS e o console CLI:
+
+1. **Instale as dependências (Node.js 20+ ou 22 LTS):**
+   ```bash
+   npm install
+   ```
+2. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+3. Acesse o endereço informado no terminal (ex: `http://localhost:5173`).
+
+---
+
+## 🚀 Como Fazer o Deploy da Aplicação no Ar (Grátis)
+
+A aplicação pode ser publicada em segundos nos seguintes provedores gratuitos:
+
+### Opção 1: Netlify (Deploy Oficial)
+> 🚀 **Aplicação Publicada:** [https://calculatora-py-iniciantes.netlify.app](https://calculatora-py-iniciantes.netlify.app)
+
+* Conecte seu repositório no [Netlify](https://www.netlify.com).
+* **Build command:** `npm run build`
+* **Publish directory:** `dist`
+
+### Opção 2: Vercel
+* Importe o repositório em [vercel.com](https://vercel.com).
+* O framework preset `Vite` é detectado automaticamente. Clique em **Deploy**.
+
+---
+
+## 🤝 Créditos e Parceria
+
+Projeto desenvolvido durante a **Imersão de Engenharia de Software com IA**:
+* **Realização:** [Alura](https://www.alura.com.br) & [Google Startups](https://startup.google.com)
+* **Agente de Engenharia Autônoma:** Google Antigravity
+* **Desenvolvido por:** Alana (Aluna da Imersão IA)

@@ -29,9 +29,11 @@ Esta versão representa a **evolução completa do Desafio 01 para o Desafio 02*
   - [Passo 2: Implementação da Operação de Porcentagem (%)](#passo-2-implementação-da-operação-de-porcentagem-)
   - [Passo 3: Testes Cruzados e Validação (Terminal + Interface Gráfica)](#passo-3-testes-cruzados-e-validação-terminal--interface-gráfica)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Como Executar no seu Computador](#-como-executar-no-seu-computador)
-  - [Executar os Scripts Python no Terminal](#executar-os-scripts-python-no-terminal)
-  - [Executar a Aplicação Web Interativa](#executar-a-aplicação-web-interativa)
+- [Como Clonar o Repositório](#-como-clonar-o-repositório)
+- [Guia de Instalação e Execução por Sistema Operacional](#-guia-de-instalação-e-execução-por-sistema-operacional)
+  - [🪟 Windows (PowerShell / CMD)](#-windows-powershell--cmd)
+  - [🍎 macOS (Terminal)](#-macos-terminal)
+  - [🐧 Linux (Ubuntu / Debian / Fedora)](#-linux-ubuntu--debian--fedora)
 - [Como Fazer o Deploy da Aplicação no Ar](#-como-fazer-o-deploy-da-aplicação-no-ar-grátis)
 - [Créditos e Parceria](#-créditos-e-parceria)
 
@@ -196,41 +198,126 @@ O agente preparou um script de verificação automatizada, testou todos os cená
 
 ---
 
-## 💻 Como Executar no seu Computador
+## 📥 Como Clonar o Repositório
 
-### Executar os Scripts Python no Terminal
+Para trazer o projeto para o seu computador, abra o seu terminal favorito e execute:
 
-Abra o PowerShell ou Terminal na pasta do projeto:
+```bash
+# Clone o repositório oficial do Desafio 02:
+git clone https://github.com/Grid2109/imersao-eng-soft-dsf02-agy.git
 
-```powershell
-# 1. Executar a versão básica (com porcentagem):
-python calculadora.py
-
-# 2. Executar a versão modular com funções e menu:
-python calculadora_modular.py
+# Acesse a pasta do projeto:
+cd imersao-eng-soft-dsf02-agy
 ```
-
-> [!TIP]
-> **Instalação do Python no Windows:** Caso o comando `python` abra a loja Microsoft Store, você pode instalar a versão oficial do Python 3.12 diretamente pelo PowerShell com o comando:
-> ```powershell
-> winget install Python.Python.3.12
-> ```
 
 ---
 
-### Executar a Aplicação Web Interativa
+## 💻 Guia de Instalação e Execução por Sistema Operacional
 
-Para rodar a interface gráfica com o simulador iOS e o console CLI:
+Abaixo estão as instruções detalhadas de como configurar e executar tanto os **scripts Python de terminal** quanto a **aplicação web interativa (React + Vite)** em **Windows**, **macOS** e **Linux**.
 
-1. **Instale as dependências (Node.js 20+ ou 22 LTS):**
-   ```bash
-   npm install
-   ```
-2. **Inicie o servidor de desenvolvimento:**
-   ```bash
-   npm run dev
-   ```
-3. Acesse o endereço informado no terminal (ex: `http://localhost:5173`).
+### 🪟 Windows (PowerShell / CMD)
+
+#### 1. Pré-requisitos (Python & Node.js):
+Caso ainda não tenha o Python ou o Node.js instalados, você pode instalá-los diretamente pelo PowerShell (como Administrador) via `winget` ou baixando os instaladores oficiais:
+
+```powershell
+# Instalar Python 3.12:
+winget install Python.Python.3.12
+
+# Instalar Node.js 22 LTS (necessário para a interface web):
+winget install OpenJS.NodeJS.LTS
+```
+*(Após instalar, feche e abra uma nova janela do PowerShell para carregar os caminhos).*
+
+#### 2. Executar os Scripts Python no Terminal:
+```powershell
+# Executar a calculadora básica (4 operações + porcentagem):
+python calculadora.py
+# (Caso seu Windows utilize o inicializador rápido do Python, tente: py calculadora.py)
+
+# Executar a versão modular com funções def e menu interativo:
+python calculadora_modular.py
+```
+
+#### 3. Executar a Aplicação Web Interativa (Simulador iOS + CLI):
+```powershell
+# Instalar as dependências do projeto:
+npm install
+
+# Inicializar o servidor de desenvolvimento:
+npm run dev
+```
+Acesse o link gerado no terminal (normalmente `http://localhost:5173`).
+
+---
+
+### 🍎 macOS (Terminal)
+
+#### 1. Pré-requisitos (Python & Node.js):
+Recomendamos o gerenciador de pacotes **Homebrew** (ou os instaladores `.pkg` oficiais):
+
+```bash
+# Instalar Python 3 e Node.js 22 LTS via Homebrew:
+brew install python node@22
+```
+
+#### 2. Executar os Scripts Python no Terminal:
+No macOS, o interpretador oficial é chamado com o comando `python3`:
+
+```bash
+# Executar a calculadora básica:
+python3 calculadora.py
+
+# Executar a versão modular com menu:
+python3 calculadora_modular.py
+```
+
+#### 3. Executar a Aplicação Web Interativa:
+```bash
+# Instalar as dependências:
+npm install
+
+# Iniciar o servidor local:
+npm run dev
+```
+Abra o navegador no endereço exibido (ex: `http://localhost:5173`).
+
+---
+
+### 🐧 Linux (Ubuntu / Debian / Fedora)
+
+#### 1. Pré-requisitos (Python & Node.js):
+
+**No Ubuntu / Debian / Pop!_OS:**
+```bash
+sudo apt update
+sudo apt install -y python3 python3-pip nodejs npm
+```
+
+**No Fedora / RHEL:**
+```bash
+sudo dnf install -y python3 python3-pip nodejs npm
+```
+
+#### 2. Executar os Scripts Python no Terminal:
+```bash
+# Executar a calculadora básica:
+python3 calculadora.py
+
+# Executar a versão modular com menu:
+python3 calculadora_modular.py
+```
+
+#### 3. Executar a Aplicação Web Interativa:
+```bash
+# Instalar as dependências:
+npm install
+
+# Iniciar o servidor local:
+npm run dev
+```
+Abra o navegador em `http://localhost:5173`.
 
 ---
 

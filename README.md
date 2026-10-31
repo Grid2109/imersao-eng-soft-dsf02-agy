@@ -24,6 +24,7 @@ Esta versão representa a **evolução completa do Desafio 01 para o Desafio 02*
 - [Visão Geral: O que foi o Desafio 01?](#-visão-geral-o-que-foi-o-desafio-01)
 - [A Evolução: O Desafio 02 com Google Antigravity](#-a-evolução-o-desafio-02-com-google-antigravity)
 - [Engenharia de Prompt: Método GCCD (`AGENTS.md`)](#-engenharia-de-prompt-método-gccd-agentsmd)
+  - [Qual a diferença entre README.md e AGENTS.md?](#-qual-a-diferença-entre-readmemd-e-agentsmd)
 - [Passo a Passo da Evolução: Os 3 Prompts e Seus Resultados](#-passo-a-passo-da-evolução-os-3-prompts-e-seus-resultados)
   - [Passo 1: Análise e Onboarding da Estrutura](#passo-1-análise-e-onboarding-da-estrutura)
   - [Passo 2: Implementação da Operação de Porcentagem (%)](#passo-2-implementação-da-operação-de-porcentagem-)
@@ -67,14 +68,24 @@ Em vez de alterar arquivos de código manualmente, a evolução do sistema foi c
 
 ## 🧠 Engenharia de Prompt: Método GCCD (`AGENTS.md`)
 
-Para garantir clareza e reprodutibilidade, cada um dos 3 comandos passados durante o desenvolvimento foi desdobrado no padrão profissional **GCCD**:
+### ⚖️ Qual a diferença entre README.md e AGENTS.md?
 
-* **G — Goal (Objetivo):** A meta objetiva e acionável.
-* **C — Context (Contexto):** Quem é o usuário, quais ferramentas estão ativas e o ecossistema do projeto.
-* **C — Constraints (Restrições):** O que **não** pode ser quebrado, segurança matemática e boas práticas.
-* **D — Data & Deliverables (Dados e Entregáveis):** Entradas, saídas esperadas, código alterado e relatórios de validação.
+Neste projeto de Engenharia de Software com IA, estabelecemos uma divisão profissional de responsabilidades para cada arquivo:
 
-> 📖 **Consulte o arquivo completo:** Para ver como cada um dos prompts simples abaixo foi formulado na íntegra segundo a metodologia GCCD, acesse o documento dedicado [`AGENTS.md`](./AGENTS.md).
+| Dimensão | `README.md` (Para Humanos) | `AGENTS.md` (Para Agentes de IA) |
+| :--- | :--- | :--- |
+| **Público-Alvo** | Desenvolvedores, avaliadores da Imersão, recrutadores e estudantes. | Agentes autônomos de IA (Google Antigravity, Cursor, Copilot) e engenheiros de prompt. |
+| **Finalidade** | Explicar o que é a aplicação, como rodar nos sistemas operacionais (Windows/Mac/Linux) e links de deploy. | Atuar como manual de governança, registrando os **prompts profissionais completos** modelados sob o método GCCD. |
+| **Conteúdo Central** | Apresentação do software, documentação didática, testes realizados e prints. | O catálogo de especificações técnicas formais (**Goal, Context, Constraints, Deliverables**) que guiam a IA sem ambiguidade. |
+
+### 🧭 O Framework GCCD em Ação
+Cada comando simples enviado pelo desenvolvedor durante o pair programming foi transformado no padrão **GCCD**:
+* **G — Goal (Objetivo):** A meta de engenharia objetiva e mensurável.
+* **C — Context (Contexto):** Quem é o usuário, a stack utilizada e os limites do repositório.
+* **C — Constraints (Restrições):** Regras inegociáveis (ex: proteção contra divisão por zero, paridade entre Python e TypeScript).
+* **D — Data & Deliverables (Dados e Entregáveis):** Assinaturas de código, saídas matemáticas esperadas e suites de teste.
+
+> 📖 **Consulte o arquivo oficial:** Para visualizar a especificação formal completa dos 3 prompts transformados profissionalmente, acesse o documento dedicado [`AGENTS.md`](./AGENTS.md).
 
 ---
 

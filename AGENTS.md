@@ -1,113 +1,148 @@
-# 🤖 AGENTS.md — Engenharia de Prompt com Google Antigravity & Método GCCD
+# 🤖 AGENTS.md — Catálogo de Prompts Profissionais & Diretrizes de Agente (Método GCCD)
 
 > **Projeto:** Calculadora em Python (Terminal CLI & Interface Gráfica iOS)  
 > **Contexto:** Imersão de Engenharia de Software com IA — **Alura & Google Startups**  
-> **Evolução:** Do Desafio 01 (Calculadora 4 Operações Básicas) ao **Desafio 02 (Porcentagem, Testes e Engenharia Agente)**  
-> **Agente de IA Utilizado:** Google Antigravity  
+> **Agente de IA:** Google Antigravity  
 > **Aluna Desenvolvedora:** Ingrid Lira  
-> **Aplicação no Ar (Vercel):** [Calculadora Python para Iniciantes](https://imersao-eng-soft-dsf02-agy.vercel.app)
+> **Deploy de Produção:** [Calculadora Python para Iniciantes](https://imersao-eng-soft-dsf02-agy.vercel.app)
 
 ---
 
-## 🧭 Introdução ao Método GCCD
+## 🎯 Propósito deste Arquivo
 
-O método **GCCD** é uma estrutura de excelência para Engenharia de Prompt projetada para orientar agentes de Inteligência Artificial de forma precisa, previsível e profissional no ciclo de desenvolvimento de software:
+Diferente do `README.md` (que é a vitrine e o guia de uso para **humanos**), o **`AGENTS.md`** é o documento técnico voltado para **Agentes de IA e Engenheiros de Software**. 
 
-* **G — Goal (Objetivo):** O que deve ser alcançado com clareza cristalina (qual a entrega principal).
-* **C — Context (Contexto):** O cenário do projeto, o papel do agente, quem é o usuário e quais tecnologias compõem o ecossistema.
-* **C — Constraints (Restrições):** Regras de negócio, o que **não** pode ser alterado, requisitos de segurança, padrões de arquitetura e limites de execução.
-* **D — Data & Deliverables (Dados e Entregáveis):** Os insumos fornecidos, exemplos de entrada/saída, formato da resposta esperada e artefatos de código a gerar.
-
-Abaixo registramos a jornada iterativa do **Desafio 02**, onde um desenvolvedor iniciante guiou o agente **Google Antigravity** passo a passo, transformando 3 prompts inicialmente simples em especificações de nível de engenharia profissional.
+Ele documenta as especificações profissionais completas construídas sob o framework **GCCD**, demonstrando como pedidos simples e coloquiais de um desenvolvedor são traduzidos em **prompts estruturados de nível de engenharia** com alto determinismo e zero ambiguidade.
 
 ---
 
-## 📌 Prompt 1: Análise e Onboarding Estrutural do Projeto
+## 🧭 O Framework Operacional GCCD
 
-### 💬 Prompt Simples Original (Enviado pelo Usuário):
-```text
-Tenho um projeto de calculadora em Python que realiza as quatro operações matemáticas básicas. Estou começando a aprender programação e quero entender como os arquivos e as funções estão organizados. Analise o projeto e explique sua estrutura de maneira simples.
+Cada prompt profissional neste documento segue os 4 pilares rigorosos da engenharia de prompt moderna:
+
+* **G — Goal (Objetivo):** O que deve ser construído ou analisado com metas explícitas e mensuráveis.
+* **C — Context (Contexto):** O cenário do sistema, stack tecnológica, nível do usuário e arquitetura do repositório.
+* **C — Constraints (Restrições):** O que **não** pode ser alterado, regras de segurança matemática e invariantes do código.
+* **D — Data & Deliverables (Dados e Entregáveis):** Formato exato do código, assinaturas de funções, testes e explicações esperadas.
+
+---
+
+## 📋 Catálogo de Prompts Profissionais (Desafio 02)
+
+---
+
+### 🔹 Prompt Profissional 01: Análise e Onboarding Arquitetural
+
+* **Entrada Simples do Desenvolvedor:**
+  > *"Tenho um projeto de calculadora em Python que realiza as quatro operações matemáticas básicas. Estou começando a aprender programação e quero entender como os arquivos e as funções estão organizados. Analise o projeto e explique sua estrutura de maneira simples."*
+
+```markdown
+### 🎯 ESPECIFICAÇÃO DE ENGENHARIA — PROMPT 01 (MÉTODO GCCD)
+
+[GOAL / OBJETIVO]
+Realizar uma auditoria técnica e onboarding estrutural do repositório existente, identificando o papel de cada arquivo e componente, fornecendo uma explicação didática, clara e estruturada para um desenvolvedor iniciante sobre o fluxo de execução das 4 operações matemáticas fundamentais.
+
+[CONTEXT / CONTEXTO]
+O repositório é parte do Desafio 01 da Imersão IA (Alura & Google Startups). O ecossistema possui duas abordagens complementares:
+1. Scripts em Python puro para execução em terminal (calculadora.py e calculadora_modular.py).
+2. Uma aplicação web de apoio pedagógico (React 19, TypeScript, Vite e Tailwind CSS) que simula visualmente uma calculadora no estilo iOS e um console CLI interativo.
+
+[CONSTRAINTS / RESTRIÇÕES]
+- NÃO alterar nenhum arquivo de código-fonte nesta etapa de análise.
+- Utilizar linguagem didática, sem jargões desnecessários, explicando os conceitos fundamentais (input, float, condicionais if/elif/else, divisão por zero e f-strings).
+- Contrastar de forma nítida o paradigma de script linear (sequencial) versus o paradigma modular com funções (def) e loop de repetição (while True).
+
+[DATA & DELIVERABLES / ENTREGÁVEIS]
+- Tabela resumo de todos os arquivos e diretórios da raiz do projeto.
+- Análise linha a linha das operações em `calculadora.py`.
+- Análise das funções `somar`, `subtrair`, `multiplicar`, `dividir` e `exibir_menu` em `calculadora_modular.py`.
+- Instruções imediatas de teste no terminal para o usuário.
 ```
 
-### 🎯 Aplicação no Método GCCD:
-
-| Dimensão GCCD | Especificação para o Agente |
-| :--- | :--- |
-| **G (Goal / Objetivo)** | Analisar o repositório existente, identificar todos os scripts e componentes, e fornecer uma explicação pedagógica sobre a organização e funcionamento de cada arquivo e função. |
-| **C (Context / Contexto)** | O usuário é um desenvolvedor iniciante participando da Imersão IA (Alura & Google Startups). O projeto é o Desafio 1 contendo scripts Python simples e uma aplicação web de apoio visual (React 19 + TypeScript + Vite). |
-| **C (Constraints / Restrições)** | Não modificar nenhum código nesta etapa. Usar linguagem simples, acessível e sem jargões desnecessários. Diferenciar claramente o código linear do modular. |
-| **D (Data & Deliverables / Entregáveis)** | Leitura de `calculadora.py`, `calculadora_modular.py` e `src/`; tabela resumo de diretórios; explicação detalhada do papel de `input()`, `float()`, `if/elif/else`, divisão por zero e das funções `somar`, `subtrair`, `multiplicar`, `dividir` e `exibir_menu`. |
-
-### ⚡ Resposta & Ação do Agente Antigravity:
-1. Varreu o repositório e mapeou a dualidade do projeto: lógica de terminal em Python e simulador gráfico no estilo iPhone em React.
-2. Explicou linha por linha o script básico sequencial ([calculadora.py](calculadora.py)).
-3. Explicou a evolução arquitetural para o script modular ([calculadora_modular.py](calculadora_modular.py)) com funções `def` e loop `while True`.
-4. Forneceu a tabela completa dos arquivos do ecossistema e instruções imediatas de execução no terminal.
-
 ---
 
-## 📌 Prompt 2: Implementação da Nova Operação de Porcentagem (%)
+### 🔹 Prompt Profissional 02: Implementação da Operação de Porcentagem (%)
 
-### 💬 Prompt Simples Original (Enviado pelo Usuário):
-```text
-Agora quero adicionar uma funcionalidade para calcular porcentagens. Implemente essa operação mantendo as funcionalidades existentes e explique quais alterações foram realizadas no código.
+* **Entrada Simples do Desenvolvedor:**
+  > *"Agora quero adicionar uma funcionalidade para calcular porcentagens. Implemente essa operação mantendo as funcionalidades existentes e explique quais alterações foram realizadas no código."*
+
+```markdown
+### 🎯 ESPECIFICAÇÃO DE ENGENHARIA — PROMPT 02 (MÉTODO GCCD)
+
+[GOAL / OBJETIVO]
+Projetar e implementar a funcionalidade matemática de cálculo de porcentagem na calculadora, preservando integralmente todas as quatro operações pré-existentes (soma, subtração, multiplicação e divisão) e a proteção contra divisão por zero.
+
+[CONTEXT / CONTEXTO]
+Evolução técnica do Desafio 01 para o Desafio 02. O projeto serve como material de estudos de programação. Portanto, o código produzido precisa seguir os mais altos padrões de legibilidade do Python (PEP 8) e manter a sincronia entre os scripts Python e os snippets exibidos na interface web.
+
+[CONSTRAINTS / RESTRIÇÕES]
+- Não quebrar o fluxo linear existente em `calculadora.py`.
+- Não quebrar a arquitetura baseada em funções puras em `calculadora_modular.py`.
+- Não utilizar bibliotecas externas ou imports desnecessários; utilizar apenas Python Standard Library.
+- Tratar entradas inválidas mantendo as mensagens de erro amigáveis existentes.
+- Garantir a sincronização do arquivo `src/data/pythonSnippets.ts` para que a interface React reflita exatamente o mesmo código Python dos arquivos em disco.
+
+[DATA & DELIVERABLES / ENTREGÁVEIS]
+- Fórmula matemática implementada: resultado = (valor * taxa) / 100.
+- Alteração em `calculadora.py`:
+  * Adição de "% -> Porcentagem" no menu impresso.
+  * Atualização do input de escolha de operação para aceitar "%".
+  * Bloco `elif operacao == "%":` com f-string: `Resultado: {num2}% de {num1} = {resultado}`.
+  * Validação no `else` contemplando o símbolo "%".
+- Alteração em `calculadora_modular.py`:
+  * Criação da função dedicada: `def calcular_porcentagem(valor, taxa): return (valor * taxa) / 100`.
+  * Menu atualizado: opção 5 para Porcentagem e opção 6 para Sair.
+  * Controle de loop `while True` e tupla de validação atualizada: `("1", "2", "3", "4", "5")`.
+- Relatório de diff detalhando todas as linhas alteradas e criadas.
 ```
 
-### 🎯 Aplicação no Método GCCD:
-
-| Dimensão GCCD | Especificação para o Agente |
-| :--- | :--- |
-| **G (Goal / Objetivo)** | Implementar o cálculo de porcentagem na calculadora, preservando integralmente as quatro operações prévias (soma, subtração, multiplicação e divisão) e a proteção contra divisão por zero. |
-| **C (Context / Contexto)** | Evolução do projeto do Desafio 01 para o Desafio 02 da Imersão Alura & Google Startups. O código deve continuar servindo como material pedagógico de alta legibilidade. |
-| **C (Constraints / Restrições)** | Não quebrar o fluxo linear de `calculadora.py` nem a estrutura funcional de `calculadora_modular.py`. Não utilizar bibliotecas externas complexas. Tratar entradas inválidas e manter a sintaxe de *f-strings*. Manter os arquivos do ecossistema sincronizados. |
-| **D (Data & Deliverables / Entregáveis)** | Edição contígua de `calculadora.py` adicionando `%` no menu e condicional; edição de `calculadora_modular.py` adicionando a função `calcular_porcentagem(valor, taxa)`, opção 5 no menu e opção 6 para sair; atualização dos trechos em `src/data/pythonSnippets.ts`; explicação didática das alterações e da fórmula matemática aplicada: $\frac{\text{valor} \times \text{taxa}}{100}$. |
-
-### ⚡ Resposta & Ação do Agente Antigravity:
-1. Formulou a regra matemática: `(num1 * num2) / 100` (ex: 15% de 200 = 30.0).
-2. Atualizou [calculadora.py](calculadora.py) com a nova opção `%` e bloco condicional.
-3. Atualizou [calculadora_modular.py](calculadora_modular.py) com a função dedicada `def calcular_porcentagem(valor, taxa)`, menu de 6 opções e validação de loop.
-4. Sincronizou `pythonSnippets.ts` para que a interface web refletisse o mesmo código dos scripts.
-5. Apresentou um relatório didático detalhando cada linha alterada.
-
 ---
 
-## 📌 Prompt 3: Testes de Qualidade e Validação Cruzada (Terminal + Interface Gráfica)
+### 🔹 Prompt Profissional 03: Garantia de Qualidade & Validação Cruzada (Terminal + GUI)
 
-### 💬 Prompt Simples Original (Enviado pelo Usuário):
-```text
-Agora teste a aplicação e verifique os resultados tanto no terminal interativo quanto na interface gráfica
+* **Entrada Simples do Desenvolvedor:**
+  > *"Agora teste a aplicação e verifique os resultados tanto no terminal interativo quanto na interface gráfica"*
+
+```markdown
+### 🎯 ESPECIFICAÇÃO DE ENGENHARIA — PROMPT 03 (MÉTODO GCCD)
+
+[GOAL / OBJETIVO]
+Executar um ciclo completo de Testes de Qualidade (QA), validando o comportamento matemático da nova operação de porcentagem e das operações herdadas, tanto na camada de script/terminal quanto nos componentes interativos da interface gráfica (calculadora iOS e console CLI).
+
+[CONTEXT / CONTEXTO]
+Etapa de homologação antes da publicação em produção. O repositório possui uma interface em React 19 + TypeScript (`InteractiveTerminal.tsx`) que simula a execução do Python em tempo real e scripts Python que rodam no shell do sistema operacional.
+
+[CONSTRAINTS / RESTRIÇÕES]
+- Cobrir 100% das operações matemáticas em casos de teste formais (números inteiros, decimais e casos de borda como divisão por zero).
+- Caso o ambiente local tenha restrições de sandbox ou interpretador, criar scripts de teste automatizado verificáveis e executar a validação estática de tipos (`vite build`).
+- Manter compatibilidade de navegação e teclado físico (teclas 0-9, operadores e tecla `%`).
+
+[DATA & DELIVERABLES / ENTREGÁVEIS]
+- Execução de script de teste com relatório tabular com status formal PASS / FAIL para:
+  * Soma: 15 + 25 = 40
+  * Subtração: 50 - 18 = 32
+  * Multiplicação: 7.5 * 4 = 30
+  * Divisão: 100 / 4 = 25
+  * Divisão por Zero: 42 / 0 -> Erro tratado
+  * Porcentagem Cenário 1: 15% de 200 = 30.0
+  * Porcentagem Cenário 2: 50% de 80 = 40.0
+  * Porcentagem Cenário 3: 10% de 55.5 = 5.55
+- Atualização do componente `src/components/InteractiveTerminal.tsx`:
+  * Inclusão do botão visual `%` na primeira linha da calculadora iOS.
+  * Inclusão do botão de preset rápido `200 % 15 (15%)` para teste instantâneo com 1 clique.
+  * Atualização da caixa de rastreio de código Python em tempo real.
+  * Atualização do Console CLI simulado nos modos básico e modular.
+- Geração bem-sucedida do bundle de produção via `npm run build` com 0 erros de compilação.
 ```
 
-### 🎯 Aplicação no Método GCCD:
-
-| Dimensão GCCD | Especificação para o Agente |
-| :--- | :--- |
-| **G (Goal / Objetivo)** | Executar testes completos de validação de ponta a ponta na lógica matemática e garantir a integração funcional da porcentagem tanto no terminal interativo quanto na interface gráfica. |
-| **C (Context / Contexto)** | Etapa de homologação e garantia de qualidade (QA) do Desafio 02 antes da publicação no GitHub. O ambiente Windows possui atalhos de execução e ambiente Node.js. |
-| **C (Constraints / Restrições)** | Validar todos os cenários matemáticos (operações regulares, casos de borda com divisão por zero e números decimais). Caso o ambiente local tenha restrições de sandbox ou interpretador, criar scripts de teste automatizado e validar compilação estática (`vite build`). |
-| **D (Data & Deliverables / Entregáveis)** | Script de testes automatizados com relatório tabular PASS/FAIL; atualização de `InteractiveTerminal.tsx` para incluir o botão `%` na calculadora iOS, atalho de teste rápido (preset) `200 % 15 (15%)` e compatibilidade total com o Console CLI; geração do bundle de produção do Vite com 0 erros. |
-
-### ⚡ Resposta & Ação do Agente Antigravity:
-1. Escreveu e executou bateria de testes automatizados em script Node.js cobrindo:
-   * Soma (15 + 25 = 40)
-   * Subtração (50 - 18 = 32)
-   * Multiplicação (7.5 * 4 = 30)
-   * Divisão (100 / 4 = 25)
-   * Divisão por Zero tratada (42 / 0 = Erro tratado)
-   * Porcentagem (15% de 200 = 30, 50% de 80 = 40, 10% de 55.5 = 5.55)
-   * **Resultado: 100% PASS (SUCESSO TOTAL)**.
-2. Adaptou a interface gráfica iOS em [InteractiveTerminal.tsx](src/components/InteractiveTerminal.tsx):
-   * Adicionou o botão `%` na linha superior (estilo clássico iOS).
-   * Adicionou o botão de preset rápido `200 % 15 (15%)`.
-   * Atualizou o inspetor de execução de código Python em tempo real.
-   * Habilitou atalho pelo teclado físico.
-3. Atualizou o Console CLI simulado nos modos Básico e Modular.
-4. Compilou a aplicação web com `npm run build` gerando os artefatos em `dist/` com 0 erros.
-
 ---
 
-## 🏆 Lições Aprendidas na Imersão
+## 🛡️ Invariantes Arquiteturais para Agentes Futuros
 
-1. **Iteração Curta e Guiada:** Conduzir o agente de IA passo a passo (um objetivo por prompt) produz resultados substancialmente mais confiáveis do que um prompt monolítico gigantesco.
-2. **Engenharia Reversa com GCCD:** Mesmo quando o usuário formula um prompt curto e informal no dia a dia, estruturá-lo mentalmente (ou formalmente) nos 4 eixos do GCCD garante que o agente nunca ignore restrições críticas nem altere trechos indevidos.
-3. **Validação Híbrida (Terminal + GUI):** Ao evoluir um software, a verificação deve abranger tanto a camada de lógica pura (Python/CLI) quanto a camada de experiência do usuário (UI/UX).
+Qualquer Agente Autônomo de IA (Google Antigravity, Cursor, Claude Code, Copilot) que for trabalhar neste repositório em desafios subsequentes **DEVE** respeitar as seguintes regras inegociáveis:
+
+1. **Paridade Dual Obrigatória:** Nunca alterar scripts Python (`calculadora.py` ou `calculadora_modular.py`) sem refletir o código correspondente em `src/data/pythonSnippets.ts` e `InteractiveTerminal.tsx`.
+2. **Segurança Matemática:** Divisão por zero (`ZeroDivisionError`) deve ser tratada preventivamente em todas as camadas (CLI e GUI).
+3. **Fórmula Canônica de Porcentagem:** O cálculo de porcentagem neste projeto segue estritamente a relação de taxa percentual:  
+   $$\text{resultado} = \frac{\text{valor} \times \text{taxa}}{100}$$
+4. **Foco Pedagógico:** Não introduzir complexidades que prejudiquem o entendimento de alunos iniciantes.

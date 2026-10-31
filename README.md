@@ -342,5 +342,5 @@ A aplicação está publicada na Vercel e também pode ser hospedada gratuitamen
 
 Projeto desenvolvido durante a **Imersão de Engenharia de Software com IA**:
 * **Realização:** [Alura](https://www.alura.com.br) & [Google Startups](https://startup.google.com)
-* **Agente de Engenharia Autônoma:** Google Antigravity
+* **Agente de Engenharia Autônoma:** Google Antigravity com o modelo Gemini 3.8 Flash
 * **Desenvolvido por:** Ingrid Lira (Aluna da Imersão IA)

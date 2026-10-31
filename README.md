@@ -5,8 +5,8 @@ Uma aplicação educacional moderna desenvolvida durante a **Imersão de Engenha
 Esta versão representa a **evolução completa do Desafio 01 para o Desafio 02**, onde o projeto da calculadora em Python foi expandido com uma nova funcionalidade matemática (**Cálculo de Porcentagem**), novos testes automatizados de garantia de qualidade e suporte integrado na **interface gráfica inspirada no iPhone (iOS)** e no **console CLI em tempo real**, tudo desenvolvido através de co-criação acelerada por agente de Inteligência Artificial (**Google Antigravity**).
 
 <p align="left">
-  <a href="https://calculatora-py-iniciantes.netlify.app" target="_blank">
-    <img src="https://img.shields.io/badge/🚀_Acessar_Aplicação-Online_no_Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="Deploy no Netlify">
+  <a href="https://imersao-eng-soft-dsf02-agy.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Acessar_Aplicação-Online_na_Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Deploy na Vercel">
   </a>
   <img src="https://img.shields.io/badge/Desafio_02-Evolução_com_IA-8A2BE2?style=for-the-badge&logo=google&logoColor=white" alt="Desafio 2">
   <img src="https://img.shields.io/badge/Agente-Google_Antigravity-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Antigravity">
@@ -14,7 +14,7 @@ Esta versão representa a **evolução completa do Desafio 01 para o Desafio 02*
   <img src="https://img.shields.io/badge/Design-iPhone_iOS-black?style=for-the-badge&logo=apple&logoColor=white" alt="iOS Design">
 </p>
 
-> 🌐 **Link da Aplicação no Ar:** [https://calculatora-py-iniciantes.netlify.app](https://calculatora-py-iniciantes.netlify.app)  
+> 🌐 **Link da Aplicação no Ar:** [Calculadora Python para Iniciantes](https://imersao-eng-soft-dsf02-agy.vercel.app)  
 > 🤖 **Documentação de Engenharia de Prompt (Método GCCD):** Veja o arquivo [`AGENTS.md`](./AGENTS.md)
 
 ---
@@ -236,18 +236,18 @@ Para rodar a interface gráfica com o simulador iOS e o console CLI:
 
 ## 🚀 Como Fazer o Deploy da Aplicação no Ar (Grátis)
 
-A aplicação pode ser publicada em segundos nos seguintes provedores gratuitos:
+A aplicação está publicada na Vercel e também pode ser hospedada gratuitamente em outros serviços:
 
-### Opção 1: Netlify (Deploy Oficial)
-> 🚀 **Aplicação Publicada:** [https://calculatora-py-iniciantes.netlify.app](https://calculatora-py-iniciantes.netlify.app)
+### Opção 1: Vercel (Deploy Oficial do Desafio 02)
+> 🚀 **Aplicação Publicada:** [Calculadora Python para Iniciantes](https://imersao-eng-soft-dsf02-agy.vercel.app)
 
+* Importe o repositório em [vercel.com](https://vercel.com).
+* O framework preset `Vite` é detectado automaticamente (`npm run build` e diretório `dist`).
+
+### Opção 2: Netlify
 * Conecte seu repositório no [Netlify](https://www.netlify.com).
 * **Build command:** `npm run build`
 * **Publish directory:** `dist`
-
-### Opção 2: Vercel
-* Importe o repositório em [vercel.com](https://vercel.com).
-* O framework preset `Vite` é detectado automaticamente. Clique em **Deploy**.
 
 ---
 
@@ -256,4 +256,4 @@ A aplicação pode ser publicada em segundos nos seguintes provedores gratuitos:
 Projeto desenvolvido durante a **Imersão de Engenharia de Software com IA**:
 * **Realização:** [Alura](https://www.alura.com.br) & [Google Startups](https://startup.google.com)
 * **Agente de Engenharia Autônoma:** Google Antigravity
-* **Desenvolvido por:** Alana (Aluna da Imersão IA)
+* **Desenvolvido por:** Ingrid Lira (Aluna da Imersão IA)

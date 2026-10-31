@@ -3,7 +3,9 @@
 > **Projeto:** Calculadora em Python (Terminal CLI & Interface Gráfica iOS)  
 > **Contexto:** Imersão de Engenharia de Software com IA — **Alura & Google Startups**  
 > **Evolução:** Do Desafio 01 (Calculadora 4 Operações Básicas) ao **Desafio 02 (Porcentagem, Testes e Engenharia Agente)**  
-> **Agente de IA Utilizado:** Google Antigravity
+> **Agente de IA Utilizado:** Google Antigravity  
+> **Aluna Desenvolvedora:** Ingrid Lira  
+> **Aplicação no Ar (Vercel):** [Calculadora Python para Iniciantes](https://imersao-eng-soft-dsf02-agy.vercel.app)
 
 ---
 

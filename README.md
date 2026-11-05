@@ -72,7 +72,7 @@ Para garantir clareza e reprodutibilidade, cada um dos 3 comandos passados duran
 * **G — Goal (Objetivo):** A meta objetiva e acionável.
 * **C — Context (Contexto):** Quem é o usuário, quais ferramentas estão ativas e o ecossistema do projeto.
 * **C — Constraints (Restrições):** O que **não** pode ser quebrado, segurança matemática e boas práticas.
-* **D — Data & Deliverables (Dados e Entregáveis):** Entradas, saídas esperadas, código alterado e relatórios de validação.
+* **D — Done When(Critério de Conclusão):** Entradas, saídas esperadas, código alterado e relatórios de validação.
 
 > 📖 **Consulte o arquivo completo:** Para ver como os prompts foram estruturados na íntegra segundo a metodologia GCCD no arquivo para agentes, acesse [`AGENTS.md`](./AGENTS.md).
 

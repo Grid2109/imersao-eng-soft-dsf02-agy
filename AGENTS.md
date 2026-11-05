@@ -33,7 +33,7 @@ Atuar como um Engenheiro de Software e Agente de IA para evoluir a aplicação d
 
 ---
 
-## [DATA & DELIVERABLES / DADOS E ENTREGÁVEIS]
+## [Done When/ Critério de Conclusão]
 
 ### Etapa 1 — Análise e Onboarding Estrutural
 - Mapeamento detalhado dos arquivos da raiz do projeto e seus propósitos.
